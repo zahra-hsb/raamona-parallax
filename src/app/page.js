@@ -1,3 +1,4 @@
+import FaQ from "@/components/FaQ";
 import Main from "@/components/Main";
 import RaamonaInfo from "@/components/RaamonaInfo";
 import Tabs from "@/components/Tabs";
@@ -9,6 +10,7 @@ export default function Home() {
       <Main />
       <Tabs />
       <RaamonaInfo />
+      <FaQ />
     </>
   );
 }
