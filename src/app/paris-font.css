@@ -7,6 +7,6 @@
     url("https://db.onlinewebfonts.com/t/a944a4a34682afada21d42c79d15deea.ttf") format("truetype"),
     url("https://db.onlinewebfonts.com/t/a944a4a34682afada21d42c79d15deea.svg#Paris2024") format("svg");
 } 
-h3 {
+.paris {
     font-family: Paris2024;
 }
