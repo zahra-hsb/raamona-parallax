@@ -1,4 +1,4 @@
-import QuestionContainer from "../globalComponents/QuestionContainer"
+import QuestionContainer from "../../globalComponents/QuestionContainer"
 
 
 const FaQ = () => {

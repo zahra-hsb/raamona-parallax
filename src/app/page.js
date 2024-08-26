@@ -1,7 +1,7 @@
-import FaQ from "@/components/FaQ";
-import Main from "@/components/Main";
-import RaamonaInfo from "@/components/RaamonaInfo";
-import Tabs from "@/components/Tabs";
+import FaQ from "@/components/homeComponents/FaQ";
+import Main from "@/components/homeComponents/Main";
+import RaamonaInfo from "@/components/homeComponents/RaamonaInfo";
+import Tabs from "@/components/homeComponents/Tabs";
 import Image from "next/image";
 
 export default function Home() {
