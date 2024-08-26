@@ -12,6 +12,9 @@ module.exports = {
       colors: {
         'orange': '#FD9341',
         'blue': '#1450A3'
+      },
+      fontFamily: {
+        paris: ['Paris', 'sans-serif']
       }
     },
   },

@@ -1,0 +1,12 @@
+@font-face {  
+    font-family: "Paris2024";
+    src: url("https://db.onlinewebfonts.com/t/a944a4a34682afada21d42c79d15deea.eot");
+    src: url("https://db.onlinewebfonts.com/t/a944a4a34682afada21d42c79d15deea.eot?#iefix") format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/a944a4a34682afada21d42c79d15deea.woff2") format("woff2"),
+    url("https://db.onlinewebfonts.com/t/a944a4a34682afada21d42c79d15deea.woff") format("woff"),
+    url("https://db.onlinewebfonts.com/t/a944a4a34682afada21d42c79d15deea.ttf") format("truetype"),
+    url("https://db.onlinewebfonts.com/t/a944a4a34682afada21d42c79d15deea.svg#Paris2024") format("svg");
+} 
+h3 {
+    font-family: Paris2024;
+}

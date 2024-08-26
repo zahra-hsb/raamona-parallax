@@ -21,7 +21,7 @@ const Footer = () => {
     return (
         <>
             <footer className="w-full py-10 px-20">
-                <section className="w-full rounded-2xl bg-amber-50 pt-10 px-28 flex flex-col pt-20">
+                <section className="w-full rounded-2xl bg-amber-50 px-28 flex flex-col pt-20">
                     <form className="w-full">
                         <div className="w-full flex relative">
                             <input type="text" className=" w-full p-3 rounded-md border backdrop-blur-3xl" placeholder="Enter Your Email..." />
