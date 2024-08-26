@@ -7,6 +7,7 @@ import twitter from '../../../../public/icons/Twitter (1).png'
 import facebook from '../../../../public/icons/Facebook (1).png'
 import tiktok from '../../../../public/icons/TikTok.png'
 import telegram from '../../../../public/icons/Telegram.png'
+import Menu from "@/components/globalComponents/Menu"
 
 const Footer = () => {
     const social = [
@@ -20,7 +21,7 @@ const Footer = () => {
     return (
         <>
             <footer className="w-full py-10 px-20">
-                <section className="w-full rounded-2xl bg-amber-50 pt-10 px-28 flex flex-col">
+                <section className="w-full rounded-2xl bg-amber-50 pt-10 px-28 flex flex-col pt-20">
                     <form className="w-full">
                         <div className="w-full flex relative">
                             <input type="text" className=" w-full p-3 rounded-md border backdrop-blur-3xl" placeholder="Enter Your Email..." />
@@ -42,6 +43,8 @@ const Footer = () => {
                         ))}
                     </div>
                 </section>
+                <Menu />
+                <p className="text-center">Copyright © Raamona Group Community Standards Acknowledgements Privacy Policy Terms of Service Refund Policy Sitemap</p>
             </footer>
         </>
     )
