@@ -1,6 +1,6 @@
 import InfoSection from "../InfoSection"
-import infoPic1 from '../../../public/images/info/1.png'
-import infoPic2 from '../../../public/images/info/2.png'
+import infoPic1 from '../../../../public/images/info/1.png'
+import infoPic2 from '../../../../public/images/info/2.png'
 
 const RaamonaInfo = () => {
     return (
