@@ -1,7 +1,7 @@
-const DateAndViews = ({ date }) => {
+const DateAndViews = ({ date, style }) => {
     return (
         <>
-            <p className='text-white mt-10'>{date} 	&#9679; 125 views</p>
+            <p className={`text-white mt-10 ` + style}>{date} 	&#9679; 125 views</p>
         </>
     )
 }

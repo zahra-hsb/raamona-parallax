@@ -28,7 +28,7 @@ const Footer = ({ isShow }) => {
                                 <div className="w-full flex relative">
                                     <input type="text" className=" w-full p-3 rounded-md border backdrop-blur-3xl" placeholder="Enter Your Email..." />
                                     <Button
-                                        text={
+                                        children={
                                             <>
                                                 Join Us
                                                 <Image src={Join} alt="join raamona" />

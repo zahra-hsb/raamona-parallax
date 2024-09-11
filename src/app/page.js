@@ -14,7 +14,7 @@ export default function Home() {
       <Tabs />
       <RaamonaInfo />
       <FaQ />
-      <Footer />
+      <Footer isShow={true} />
     </>
   );
 }
