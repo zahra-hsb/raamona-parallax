@@ -1,3 +1,4 @@
+import Header from "@/components/globalComponents/Header";
 import FaQ from "@/components/homeComponents/FaQ";
 import Footer from "@/components/homeComponents/Footer";
 import Main from "@/components/homeComponents/Main";
@@ -8,6 +9,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
+      <Header />
       <Main />
       <Tabs />
       <RaamonaInfo />
