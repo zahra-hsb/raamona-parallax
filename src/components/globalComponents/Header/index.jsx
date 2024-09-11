@@ -7,7 +7,7 @@ import PlayButton from "../PlayButton"
 const Header = ({ style }) => {
     return (
         <>
-            <header className={style + ` flex justify-between gap-10 rounded-full shadow-xl p-5 mx-14 my-5 backdrop-blur-sm`}>
+            <header className={style + ` flex justify-between gap-10 rounded-full shadow-xl p-5 mx-14 my-5 backdrop-blur`}>
                 <nav className="w-full flex gap-5">
                     <Logo />
                     <Menu style={'gap-9 text-blue'} whichMenu={false} />

@@ -8,6 +8,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
+        'slide1': 'url(/images/blog/Blog-Item.png)',
+        'slide2': 'url(/images/blog/State=Page-2.png)',
+        'slide3': 'url(/images/blog/State=Page-3.png)',
       },
       colors: {
         'orange': '#FD9341',

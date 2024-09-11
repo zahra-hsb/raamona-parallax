@@ -7,6 +7,7 @@
   font-family: minion;
   src: url(./../../public/fonts/MinionPro-Regular.woff);
 }
+
 h3 {
   font-weight: 800;
 }
@@ -15,20 +16,31 @@ h5 {
   font-weight: 600;
 }
 
-:root {
- 
+body>div.w-full.h-screen.rounded-b-3xl.overflow-hidden>div>div.swiper-pagination.swiper-pagination-bullets-dynamic.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal>span.swiper-pagination-bullet.swiper-pagination-bullet-active.swiper-pagination-bullet-active-main {
+  background-color: orange !important;
+  width: 16px;
+  height: 16px;
 }
 
+body>div.w-full.h-screen.rounded-b-3xl.overflow-hidden>div>div.swiper-pagination.swiper-pagination-bullets-dynamic.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal>span.swiper-pagination-bullet {
+  width: 14px;
+  height: 14px;
+  background-color: white !important;
+  opacity: 100 !important;
+}
+
+body>div.w-full.h-screen.rounded-b-3xl.overflow-hidden>div>div.swiper-pagination.swiper-pagination-bullets-dynamic.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+  padding: 10px;
+}
+
+:root {}
+
 @media (prefers-color-scheme: dark) {
-  :root {
-    
-  }
+  :root {}
 }
 
 body {
   font-family: minion;
 }
 
-@layer utilities {
-  
-}
+@layer utilities {}
