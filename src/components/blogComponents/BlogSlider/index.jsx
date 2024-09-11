@@ -12,6 +12,7 @@ import 'swiper/css/effect-fade';
 import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
 import Image from 'next/image';
 import slide from '../../../../public/images/blog/Blog-Item.png'
+import DateAndViews from '@/components/globalComponents/DateAndViews';
 
 const BlogSlider = () => {
     const [date, setDate] = useState('')
@@ -48,7 +49,7 @@ const BlogSlider = () => {
                                 <p>
                                     Lorem ipsum dolor sit amet consectetur. Diam id leo id elementum nibh quis ut vehicula dui. Vel ultrices commodo congue vestibulum enim neque. Sit et at rhoncus augue at. Commodo id consequat mauris et. Adipiscing morbi nulla est erat nec mauris venenatis. Vulputate dignissim urna ullamcorper porttitor suspendisse habitant id lectus. Diam sapien condimentum mattis duis morbi turpis. Fermentum nec varius arcu arcu nisi diam. Feugiat massa nibh non semper nunc tempor auctor amet. Sapien dignissim augue purus tristique orci venenatis ornare eget.
                                 </p>
-                                <p className='text-white mt-10'>{date} 	&#9679; 125 views</p>
+                                <DateAndViews date={date}/>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -60,7 +61,7 @@ const BlogSlider = () => {
                                 <p>
                                     Lorem ipsum dolor sit amet consectetur. Diam id leo id elementum nibh quis ut vehicula dui. Vel ultrices commodo congue vestibulum enim neque. Sit et at rhoncus augue at. Commodo id consequat mauris et. Adipiscing morbi nulla est erat nec mauris venenatis. Vulputate dignissim urna ullamcorper porttitor suspendisse habitant id lectus. Diam sapien condimentum mattis duis morbi turpis. Fermentum nec varius arcu arcu nisi diam. Feugiat massa nibh non semper nunc tempor auctor amet. Sapien dignissim augue purus tristique orci venenatis ornare eget.
                                 </p>
-                                <p className='text-white mt-10'>{date} 	&#9679; 125 views</p>
+                                <DateAndViews date={date}/>
                             </div>
                         </div>
                     </SwiperSlide>
@@ -72,7 +73,7 @@ const BlogSlider = () => {
                                 <p>
                                     Lorem ipsum dolor sit amet consectetur. Diam id leo id elementum nibh quis ut vehicula dui. Vel ultrices commodo congue vestibulum enim neque. Sit et at rhoncus augue at. Commodo id consequat mauris et. Adipiscing morbi nulla est erat nec mauris venenatis. Vulputate dignissim urna ullamcorper porttitor suspendisse habitant id lectus. Diam sapien condimentum mattis duis morbi turpis. Fermentum nec varius arcu arcu nisi diam. Feugiat massa nibh non semper nunc tempor auctor amet. Sapien dignissim augue purus tristique orci venenatis ornare eget.
                                 </p>
-                                <p className='text-white mt-10'>{date} 	&#9679; 125 views</p>
+                                <DateAndViews date={date} />
                             </div>
                         </div>
                     </SwiperSlide>
