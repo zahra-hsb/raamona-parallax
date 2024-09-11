@@ -21,7 +21,7 @@ const BlogCard = ({ image, title, text, style }) => {
                     <DateAndViews date={date} style={'!text-gray-500 !mt-0'} />
                     <h3 className="text-3xl">{title}</h3>
                     <p className="text-gray-500 ">{text}</p>
-                    <Button style={''} text={
+                    <Button style={'!rounded-full'} text={
                         <>
                             view more
                             <span className="text-orange">→</span>
