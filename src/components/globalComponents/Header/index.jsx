@@ -1,14 +1,20 @@
+import Account from "../Account"
 import Logo from "../Logo"
 import Menu from "../Menu"
+import PlayButton from "../PlayButton"
 
 
 const Header = () => {
     return (
         <>
-            <header className="flex">
+            <header className="w-full flex justify-between gap-10 rounded-full shadow-xl p-5">
                 <nav className="w-full flex gap-5">
                     <Logo />
                     <Menu style={'gap-9 text-blue'} whichMenu={false} />
+                </nav>
+                <nav className="w-full flex gap-5 justify-end">
+                    <Account />
+                    <PlayButton />
                 </nav>
             </header>
         </>
