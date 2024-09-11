@@ -43,7 +43,7 @@ const Footer = () => {
                         ))}
                     </div>
                 </section>
-                <Menu />
+                <Menu style={'w-full gap-5'} whichMenu={true} />
                 <p className="text-center">Copyright © Raamona Group Community Standards Acknowledgements Privacy Policy Terms of Service Refund Policy Sitemap</p>
             </footer>
         </>
