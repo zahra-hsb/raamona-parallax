@@ -8,9 +8,13 @@ import { useState } from "react"
 
 const HubSection = ({ avatar, username, category, image, alt }) => {
     const [isFollow, setFollow] = useState(false)
+    const [isLike, setLike] = useState(false)
 
     function handleFollow() {
         setFollow(!isFollow)
+    }
+    function handleLike() {
+        setLike(!isLike)
     }
     return (
         <>
@@ -38,9 +42,9 @@ const HubSection = ({ avatar, username, category, image, alt }) => {
                 </div>
                 <div className="w-full relative rounded-lg overflow-hidden flex items-center justify-center bg-gray-200">
                     <Image src={image} alt={alt} />
-                    <div className="absolute bottom-5 left-5">
-                        <Image src={heart} alt={'heart'} />
-                    </div>
+                    <button onClick={handleLike} className="absolute bottom-5 left-5">
+                        <Image src={isLike ? redheart : heart} alt={'heart'} />
+                    </button>
                 </div>
             </section>
         </>
