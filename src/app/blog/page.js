@@ -1,3 +1,4 @@
+import BlogPagination from "@/components/blogComponents/BlogPagination"
 import BlogSection from "@/components/blogComponents/BlogSection"
 import BlogSlider from "@/components/blogComponents/BlogSlider"
 import Header from "@/components/globalComponents/Header"
@@ -10,6 +11,7 @@ const blog = () => {
             <Header style={'w-[90%] fixed z-50'} />
             <BlogSlider />
             <BlogSection />
+            <BlogPagination />
             <Footer isShow={false} />
         </>
     )
