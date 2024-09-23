@@ -1,5 +1,6 @@
 'use client'
 import Button from "@/components/globalComponents/Button"
+import CardContainer from "@/components/globalComponents/CardContainer"
 import DateAndViews from "@/components/globalComponents/DateAndViews"
 import Image from "next/image"
 import { useEffect, useState } from "react"
@@ -15,7 +16,7 @@ const BlogCard = ({ image, title, text, style }) => {
     }, [])
     return (
         <>
-            <div className={`border border-gray-700 rounded-3xl p-8 flex flex-col gap-5 items-start justify-between ` + style}>
+            <CardContainer style={style}>
                 <Image src={image} alt="" />
                 <div className="flex flex-col h-full items-start justify-between">
                     <DateAndViews date={date} style={'!text-gray-500 !mt-0'} />
@@ -28,7 +29,7 @@ const BlogCard = ({ image, title, text, style }) => {
                         </>
                     } />
                 </div>
-            </div>
+            </CardContainer>
         </>
     )
 }
