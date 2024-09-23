@@ -35,6 +35,26 @@ const Explore = () => {
         { avatar: avatar, username: 'username', pic: pic2 },
         { avatar: avatar, username: 'username', pic: pic2 },
         { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
+        { avatar: avatar, username: 'username', pic: pic2 },
     ]
     
     return (
@@ -56,7 +76,7 @@ const Explore = () => {
                         }
                     </div>
                     <div className="grid grid-cols-4 gap-10">
-                        {picturesArray.length !== 0 ? picturesArray.map(item => (
+                        {picturesArray.length !== 0 ? picturesArray?.slice(0, 32).map(item => (
                             <>
                                 <PictureContainer item={item} />
                             </>
@@ -73,6 +93,16 @@ const Explore = () => {
                         ))
                             :
                             <div className="p-10">There is no any data...</div>
+                        }
+                    </div>
+                    <div className="grid grid-cols-4 gap-10">
+                        {picturesArray.length !== 0 ? picturesArray?.slice(0, 32).map(item => (
+                            <>
+                                <PictureContainer item={item} />
+                            </>
+                        ))
+                            :
+                            <div>There is no any picture...</div>
                         }
                     </div>
                 </div>

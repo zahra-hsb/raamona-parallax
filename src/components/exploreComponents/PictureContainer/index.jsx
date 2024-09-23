@@ -12,7 +12,7 @@ const PictureContainer = ({ item }) => {
 
     function handleLike() {
         setLike(!isLike)
-        setCount(count + 1)
+        setCount(!isLike ? count + 1 : count - 1)
     }
     return (
         <>
