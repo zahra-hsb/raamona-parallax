@@ -33,6 +33,13 @@ body>div.w-full.h-screen.rounded-b-3xl.overflow-hidden>div>div.swiper-pagination
   padding: 10px;
 }
 
+.progress-ring__circle {
+  stroke-dasharray: 400, 400;
+  transition: stroke-dashoffset 0.35s;
+  transform: rotate(90deg);
+  transform-origin: 50% 50%;
+}
+
 :root {}
 
 @media (prefers-color-scheme: dark) {
