@@ -68,7 +68,7 @@ const Main = () => {
         <>
             <Header style={` ${isLoad ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'} absolute z-50 w-[90%] transition-all duration-1000`} />
             <section ref={parallaxRef} className="w-full relative bg-gradient-to-b from-[#474afe] to-[#a4f1de] overflow-hidden h-screen">
-                <h3 ref={raamona} className={` ${isLoad ? '-translate-x-10 -translate-y-10 text-[60pt]' : 'translate-x-96 translate-y-28 text-[90pt]'} transition-all duration-1000 paris text-blue font-extrabold absolute z-50 top-36 left-96 opacity-100`}>Raamona</h3>
+                <h3 ref={raamona} className={` ${isLoad ? '-translate-x-10 -translate-y-10 text-[60pt]' : 'translate-x-96 translate-y-28 text-[90pt] z-50 '} z-30 transition-all duration-1000 paris text-blue font-extrabold absolute top-36 left-96 opacity-100`}>Raamona</h3>
                 <div className="w-full flex relative">
                     <input type="text" className="w-80 p-2 rounded-md border border-gray-500 shadow-md backdrop-blur-lg placeholder:text-gray-500 top-96 bg-transparent right-96 z-30 absolute" placeholder="Search Username..." />
                     <Button
