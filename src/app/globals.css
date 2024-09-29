@@ -50,4 +50,32 @@ body {
   font-family: minion;
 }
 
+@keyframes loop {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+
+  0% {
+    transform: translateX(0%);
+
+  }
+
+}
+
+.loop {
+  animation: loop 10s linear infinite;
+  overflow: hidden;
+  display: flex; /* Make sure the flex display is here */  
+  white-space: nowrap;
+}
+
+
+.scroller{
+  overflow: hidden;
+}
+
 @layer utilities {}

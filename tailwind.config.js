@@ -19,7 +19,21 @@ module.exports = {
       },
       fontFamily: {
         paris: ['Paris', 'sans-serif']
-      }
+      },
+      keyframes: {
+        'infinite-scroll': {
+          'from': { transform: 'translateX(0)' },
+          'to': { transform: 'translateX(-100%)' },
+        },
+        'infinite-reverse-scroll': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translate(50%)' },
+        }
+      },
+      animation: {
+        'infinite-scroll': 'infinite-scroll 10s linear infinite',
+        'infinite-reverse-scroll': 'infinite-reverse-scroll 10s linear infinite'
+      },
     },
   },
   plugins: [],

@@ -2,12 +2,11 @@ import Image from "next/image"
 
 
 
-const PictureContainer = ({ item }) => {
-    console.log(item);
+const PictureContainer = ({ item, isSecond }) => {
     return (
         <>
-            <div className="rounded w-full h-full">
-                <Image src={item} alt="raamona" />
+            <div aria-hidden={isSecond} className="rounded w-max h-full basis-full">
+                <Image src={item} alt="raamona" className="object-cover max-w-none" />
             </div>
         </>
     )
