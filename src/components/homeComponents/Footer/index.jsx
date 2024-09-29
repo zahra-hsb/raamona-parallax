@@ -23,12 +23,12 @@ const Footer = ({ isShow }) => {
             <footer className="w-full py-10 px-20">
                 {isShow &&
                     <>
-                        <section className="w-full rounded-2xl bg-amber-50 px-28 flex flex-col pt-20">
+                        <section className="w-full bg-footer h-full rounded-2xl bg-amber-50 px-28 flex flex-col pt-72 bg-cover">
                             <form className="w-full">
                                 <div className="w-full flex relative">
                                     <input type="text" className=" w-full p-3 rounded-md border backdrop-blur-3xl" placeholder="Enter Your Email..." />
                                     <Button
-                                        children={
+                                        text={
                                             <>
                                                 Join Us
                                                 <Image src={Join} alt="join raamona" />

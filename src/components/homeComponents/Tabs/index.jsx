@@ -75,7 +75,7 @@ const Tabs = () => {
                 </div> */}
                 <div className="w-full flex gap-5 py-5 overflow-hidden">
                     <div ref={scrollRef} className=" w-screen flex animate-infinite-reverse-scroll gap-5 h-full flex-nowrap items-center justify-center">
-                        {pics1Array.div.map((item, index) => (
+                        {!isLoad && pics1Array.div.map((item, index) => (
                             <>
                                 <PictureContainer key={index} item={item} />
                             </>
@@ -84,7 +84,7 @@ const Tabs = () => {
                 </div>
                 <div className="w-full flex gap-5 py-5 overflow-hidden">
                     <div ref={scrollRef} className=" w-screen flex animate-infinite-scroll gap-5 h-full flex-nowrap items-center justify-center">
-                        {pics1Array.div1.map((item, index) => (
+                        {!isLoad && pics1Array.div1.map((item, index) => (
                             <>
                                 <PictureContainer key={index} item={item} />
                             </>
@@ -93,7 +93,7 @@ const Tabs = () => {
                 </div>
                 <div className="w-full flex gap-5 py-5 overflow-hidden">
                     <div ref={scrollRef} className=" w-screen flex animate-infinite-reverse-scroll gap-5 h-full flex-nowrap items-center justify-center">
-                        {pics1Array.div1.map((item, index) => (
+                        {!isLoad && pics1Array.div1.map((item, index) => (
                             <>
                                 <PictureContainer key={index} item={item} />
                             </>
