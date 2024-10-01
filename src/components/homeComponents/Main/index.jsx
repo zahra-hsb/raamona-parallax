@@ -77,7 +77,7 @@ const Main = () => {
                     </button>
                 </div>
                 <div className="w-full flex relative">
-                    <input type="text" className="w-80 p-2 rounded-md border border-gray-500 shadow-md backdrop-blur-lg placeholder:text-gray-500 top-96 bg-transparent left-[40%] z-50 absolute hover:bg-slate-400 transition-all duration-300 hover:placeholder:text-lg" placeholder="Search Username..." />
+                    <input type="text" className="w-80 p-2 rounded-md border border-gray-500 shadow-md backdrop-blur-lg placeholder:text-gray-500 top-96 bg-transparent left-[40%] z-50 absolute hover:bg-slate-400 transition-all duration-500 hover:placeholder:scale-110 hover:placeholder:translate-x-4" placeholder="Search Username..." />
                     <Button
                         text={
                             <>
