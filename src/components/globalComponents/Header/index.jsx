@@ -1,3 +1,4 @@
+'use client'
 import Account from "../Account"
 import Logo from "../Logo"
 import Menu from "../Menu"

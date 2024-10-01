@@ -71,13 +71,13 @@ const Main = () => {
             <section ref={parallaxRef} className="w-full relative bg-gradient-to-b from-[#474afe] to-[#a4f1de] overflow-hidden h-screen">
                 <h3 ref={raamona} className={` ${isLoad ? '-translate-x-10 -translate-y-10 text-[60pt]' : 'translate-x-96 translate-y-28 text-[90pt] z-50 '} z-30 transition-all duration-1000 paris text-blue font-extrabold absolute top-36 left-96 opacity-100`}>Raamona</h3>
                 <div className="relative">
-                    <button className="rounded-full shadow-top absolute top-52 right-52 backdrop-blur-lg z-50 p-5 py-8 text-center flex flex-col items-center gap-2 text-blue">
+                    <button className="rounded-full shadow-top absolute top-52 right-72 backdrop-blur-lg z-50 p-5 py-8 text-center flex flex-col items-center gap-2 text-blue">
                         <Image src={start} alt="" />
                         GET START
                     </button>
                 </div>
                 <div className="w-full flex relative">
-                    <input type="text" className="w-80 p-2 rounded-md border border-gray-500 shadow-md backdrop-blur-lg placeholder:text-gray-500 top-96 bg-transparent left-[40%] z-50 absolute hover:bg-slate-400 transition-all duration-500 hover:placeholder:scale-110 hover:placeholder:translate-x-4" placeholder="Search Username..." />
+                    <input type="text" className="w-80 p-2 rounded-md border border-gray-500 shadow-md backdrop-blur-lg placeholder:text-gray-500 top-96 bg-transparent left-[40%] z-50 absolute hover:bg-slate-400  hover:placeholder:scale-110 hover:placeholder:translate-x-4 transition-all duration-700" placeholder="Search Username..." />
                     <Button
                         text={
                             <>
