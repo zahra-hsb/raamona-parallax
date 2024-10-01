@@ -12,6 +12,7 @@ import { useEffect, useRef, useState } from "react"
 import gsap from "gsap"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
 import Header from "@/components/globalComponents/Header"
+import start from '../../../../public/icons/start.svg'
 
 const Main = () => {
     const [background, setBackground] = useState(20)
@@ -69,14 +70,20 @@ const Main = () => {
             <Header style={` ${isLoad ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'} absolute z-50 w-[90%] transition-all duration-1000`} />
             <section ref={parallaxRef} className="w-full relative bg-gradient-to-b from-[#474afe] to-[#a4f1de] overflow-hidden h-screen">
                 <h3 ref={raamona} className={` ${isLoad ? '-translate-x-10 -translate-y-10 text-[60pt]' : 'translate-x-96 translate-y-28 text-[90pt] z-50 '} z-30 transition-all duration-1000 paris text-blue font-extrabold absolute top-36 left-96 opacity-100`}>Raamona</h3>
+                <div className="relative">
+                    <button className="rounded-full shadow-top absolute top-52 right-52 backdrop-blur-lg z-50 p-5 py-8 text-center flex flex-col items-center gap-2 text-blue">
+                        <Image src={start} alt="" />
+                        GET START
+                    </button>
+                </div>
                 <div className="w-full flex relative">
-                    <input type="text" className="w-80 p-2 rounded-md border border-gray-500 shadow-md backdrop-blur-lg placeholder:text-gray-500 top-96 bg-transparent right-96 z-30 absolute" placeholder="Search Username..." />
+                    <input type="text" className="w-80 p-2 rounded-md border border-gray-500 shadow-md backdrop-blur-lg placeholder:text-gray-500 top-96 bg-transparent left-[40%] z-50 absolute hover:bg-slate-400 transition-all duration-300 hover:placeholder:text-lg" placeholder="Search Username..." />
                     <Button
                         text={
                             <>
                                 <Image src={Join} alt="join raamona" />
                             </>}
-                        style={'absolute z-30 top-96 mt-1 mr-1 right-96 !py-1'}
+                        style={'absolute z-50 top-96 mt-1 mr-1 right-[39%] !py-1'}
                     />
                 </div>
                 <div>
