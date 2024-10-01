@@ -13,7 +13,7 @@ const Header = ({ style }) => {
                     <Logo />
                     <Menu style={'gap-9 text-blue'} whichMenu={false} />
                 </nav>
-                <nav className="w-full flex gap-5 justify-end">
+                <nav className="w-full flex gap-5 justify-end items-center">
                     <Account />
                     <PlayButton />
                 </nav>
