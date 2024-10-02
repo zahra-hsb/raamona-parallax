@@ -40,7 +40,6 @@ const BlogSlider = () => {
                     }}
                     spaceBetween={30}
                     effect={'fade'}
-                    navigation={true}
                     modules={[EffectFade, Pagination, Autoplay]}
                 >
                     <SwiperSlide>
