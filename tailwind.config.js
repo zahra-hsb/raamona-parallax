@@ -36,6 +36,9 @@ module.exports = {
         'infinite-scroll': 'infinite-scroll 10s linear infinite',
         'infinite-reverse-scroll': 'infinite-reverse-scroll 10s linear infinite'
       },
+      boxShadow: {
+        'input': '0 4px 4px 0 #00000033'
+      }
     },
   },
   plugins: [],
