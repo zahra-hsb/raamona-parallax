@@ -8,7 +8,7 @@ import Footer from "@/components/homeComponents/Footer"
 const blog = () => {
     return (
         <>
-            <Header style={'w-[90%] fixed z-50'} />
+            <Header isLoggedIn={true} style={'w-[90%] fixed z-50'} />
             <BlogSlider />
             <BlogSection />
             <BlogPagination />

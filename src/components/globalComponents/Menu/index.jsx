@@ -15,11 +15,11 @@ const Menu = ({ style, whichMenu }) => {
     ]
     return (
         <>
-            <ul className={`flex justify-center items-center py-2 font-semibold ` + style}>
+            <ul className={`flex justify-center items-center py-2 font-semibold overflow-hidden flex-nowrap mx-5 ` + style}>
                 {whichMenu ? menu.map(item => (
                     <>
                         <li>
-                            <Link href={item.link} >
+                            <Link className="text-nowrap" href={item.link} >
                                 {item.title}
                             </Link>
                         </li>
@@ -29,7 +29,7 @@ const Menu = ({ style, whichMenu }) => {
                 menu2.map(item => (
                     <>
                         <li>
-                            <Link href={item.link} >
+                            <Link className="text-nowrap" href={item.link} >
                                 {item.title}
                             </Link>
                         </li>

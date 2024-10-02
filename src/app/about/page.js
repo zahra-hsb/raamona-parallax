@@ -5,7 +5,7 @@ import Footer from "@/components/homeComponents/Footer"
 const about = () => {
     return (
         <>
-            <Header style={'fixed w-[90%] z-50 '} />
+            <Header isLoggedIn={true} style={'fixed w-[90%] z-50 '} />
             <About />
             <Footer />
         </>

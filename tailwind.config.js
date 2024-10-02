@@ -12,7 +12,8 @@ module.exports = {
         'slide2': 'url(/images/blog/State=Page-2.png)',
         'slide3': 'url(/images/blog/State=Page-3.png)',
         'about': 'url(/images/about/Frame126.png)',
-        'footer': 'url(/images/footer/FooterImage.png)'
+        'footer': 'url(/images/footer/FooterImage.png)',
+        'contact': 'url(/images/contact/bg.png)',
       },
       colors: {
         'orange': '#FD9341',
