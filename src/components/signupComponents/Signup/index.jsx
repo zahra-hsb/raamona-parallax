@@ -58,7 +58,7 @@ const Signup = () => {
                                 <Input id={'lastName'} label={'LAST NAME*'} maxLength={20} placeholder={'Enter last name'} style={'border border-gray-500'} icon={user} />
                             </div>
                             <div className="flex gap-2 justify-between items-start">
-                                <Input id={'firstName'} label={'USERNAME*'} maxLength={20} placeholder={'Enter username'} style={'border border-gray-500'} icon={username} />
+                                <Input id={'username'} label={'USERNAME*'} maxLength={20} placeholder={'Enter username'} style={'border border-gray-500'} icon={username} />
                                 <div className="flex flex-col gap-2">
                                     <Input type={'password'} id={'password'} label={'PASSWORD*'} maxLength={20} placeholder={'Create a password'} style={'border border-gray-500'} icon={password} />
                                     <Input id={'confirmPassword'} maxLength={20} placeholder={'Confirm your password'} style={'border border-gray-500'} icon={password} />
