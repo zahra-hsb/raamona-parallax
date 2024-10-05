@@ -61,13 +61,13 @@ const Signup = () => {
                             <Image src={arrow} alt="" className="rotate-180 absolute z-30 hidden" />
                             <Button text={'Create Account'} />
 
-                            <div className="py-2">
-                                <p className="text-center">
-                                    Already have an acount?
-                                    <Link href={'/signin'} className="px-2 text-blue font-bold text-xl">Sign In</Link>
-                                </p>
-                            </div>
                         </form>
+                        <div className="py-2">
+                            <p className="text-center">
+                                Already have an acount?
+                                <Link href={'/signin'} className="px-2 text-blue font-bold text-xl">Sign In</Link>
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <LoginBg bg={bg} />
