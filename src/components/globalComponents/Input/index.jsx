@@ -1,9 +1,9 @@
 import Image from "next/image"
 
-const Input = ({ icon, label, type, maxLength, id, placeholder, style }) => {
+const Input = ({ icon, label, type, maxLength, id, placeholder, style, width }) => {
     return (
         <>
-            <div className="">
+            <div className={` ${width}`}>
                 <label htmlFor={id}>{label}</label>
                 <div className="py-1 relative ">
                     <Image src={icon} alt="" className="absolute top-3 left-2" />
