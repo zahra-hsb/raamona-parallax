@@ -1,14 +1,6 @@
 'use client'
 import Image from "next/image"
 import bg from '../../../../public/images/signup/Image.png'
-import Logo from "../../globalComponents/Logo"
-import back from '../../../../public/icons/Arrow_drop_left.svg'
-import { useRouter } from "next/navigation"
-import SignupContainer from "../SignupContainer"
-import google from '../../../../public/icons/Google.svg'
-import facebook from '../../../../public/icons/Facebook.svg'
-import microsoft from '../../../../public/icons/Microsoft.svg'
-import apple from '../../../../public/icons/Apple.svg'
 import Input from "@/components/globalComponents/Input"
 import user from '../../../../public/icons/User_alt_duotone_line.svg'
 import username from '../../../../public/icons/E-mail_light.svg'
@@ -19,10 +11,13 @@ import Button from "@/components/globalComponents/Button"
 import Link from "next/link"
 import arrow from '../../../../public/icons/Arrow_drop_down.svg'
 import { useState } from "react"
+import LoginHeader from "@/components/globalComponents/LoginHeader"
+import SocialLogin from "@/components/globalComponents/SocialLogin"
+import LoginBg from "@/components/globalComponents/LoginBg"
 
 const options = ['accordion option', 'accordion option', 'accordion option', 'accordion option']
 const Signup = () => {
-    const router = useRouter()
+
     const [isShowOption, setShowOptions] = useState(false)
 
     function handleShowOptions() {
@@ -30,28 +25,12 @@ const Signup = () => {
     }
     return (
         <>
-            <section className="flex ">
+            <section className="flex">
                 <div className="w-1/2 p-10">
-                    <div className="flex justify-between items-center w-full">
-                        <Logo />
-                        <button onClick={() => router.back()} className="flex items-center justify-center">
-                            <Image src={back} alt="" />
-                            <h4>GO BACK</h4>
-                        </button>
-                    </div>
+                    <LoginHeader />
                     <div className="p-16 flex flex-col gap-5">
                         <h2 className="text-4xl">Create account</h2>
-                        <div className="grid grid-cols-2  gap-5">
-                            <SignupContainer text={'Sign up With Google'} icon={google} />
-                            <SignupContainer text={'Sign up With Facebook'} icon={facebook} />
-                            <SignupContainer text={'Sign up With Microsoft'} icon={microsoft} />
-                            <SignupContainer text={'Sign up With Apple'} icon={apple} />
-                        </div>
-                        <div className="flex items-center w-full justify-between gap-2">
-                            <div className="border border-gray-500 w-full"></div>
-                            <div>Or</div>
-                            <div className="border border-gray-500 w-full"></div>
-                        </div>
+                        <SocialLogin />
                         <form className="flex flex-col gap-2">
                             <div className="flex gap-2 justify-between items-center">
                                 <Input id={'firstName'} label={'FIRST NAME*'} maxLength={20} placeholder={'Enter first name'} style={'border border-gray-500'} icon={user} />
@@ -72,11 +51,11 @@ const Signup = () => {
                                     CHOOSE AN OPTION
                                 </option>
                                 {/* <ul className={`absolute rounded-lg bottom-12 overflow-hidden w-full left-0 shadow-lg transition-all text-start duration-300 ease-out ${isShowOption ? 'opacity-100' : 'opacity-0'}`}> */}
-                                    {options.map((item, index) =>
-                                        <option
-                                            className="w-full text-gray-400 font-medium bg-gray-100 px-5 py-2 hover:bg-gray-300 transition-all text-start duration-300 ease-out"
-                                            key={index}>{item}</option>
-                                    )}
+                                {options.map((item, index) =>
+                                    <option
+                                        className="w-full text-gray-400 font-medium bg-gray-100 px-5 py-2 hover:bg-gray-300 transition-all text-start duration-300 ease-out"
+                                        key={index}>{item}</option>
+                                )}
                                 {/* </ul> */}
                             </select>
                             <Image src={arrow} alt="" className="rotate-180 absolute z-30 hidden" />
@@ -91,9 +70,7 @@ const Signup = () => {
                         </form>
                     </div>
                 </div>
-                <div className="p-10">
-                    <Image src={bg} alt="" className="h-full rounded-3xl" />
-                </div>
+                <LoginBg bg={bg} />
             </section>
         </>
     )
