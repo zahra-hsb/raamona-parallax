@@ -46,7 +46,7 @@ const Signin = () => {
                             <h5 className="text-center my-2 text-lg">
                                 <Link
                                     className="text-blue font-bold text-center"
-                                    href={'/forgot-password'}>
+                                    href={'/signin/forgotpassword'}>
                                     Forgot Password!
                                 </Link>
                             </h5>
