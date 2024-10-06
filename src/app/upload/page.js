@@ -1,4 +1,4 @@
-import Upload from "@/components/homeComponents/Upload"
+import Upload from "@/components/globalComponents/Upload"
 
 const upload = () => {
     return (
