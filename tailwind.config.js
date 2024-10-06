@@ -14,6 +14,7 @@ module.exports = {
         'about': 'url(/images/about/Frame126.png)',
         'footer': 'url(/images/footer/FooterImage.png)',
         'contact': 'url(/images/contact/bg.png)',
+        'blogContent': 'url(/images/blogContent/image.png)',
       },
       colors: {
         'orange': '#FD9341',
