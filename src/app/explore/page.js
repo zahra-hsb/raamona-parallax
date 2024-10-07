@@ -4,7 +4,7 @@ import Header from "@/components/globalComponents/Header"
 const explore = () => {
     return (
         <>
-            <Header isLoggedIn={true} />
+            <Header isLoggedIn={true} isShowPlayBtn={true} />
             <Explore />
         </>
     )

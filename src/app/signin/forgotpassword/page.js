@@ -5,7 +5,7 @@ import ForgotPassword from "../../../components/forgotPassComponents/ForgotPassw
 const forgotpassword = () => {
     return (
         <>
-            <Header isLoggedIn={true} />
+            <Header isLoggedIn={true} isShowPlayBtn={true} />
             <ForgotPassword />
         </>
     )

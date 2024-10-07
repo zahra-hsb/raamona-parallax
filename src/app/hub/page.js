@@ -4,7 +4,7 @@ import Hub from "@/components/hubComponents/Hub"
 const hub = () => {
     return (
         <>  
-            <Header isLoggedIn={true} style={'w-[90%] z-50'} />
+            <Header isLoggedIn={true} style={'w-[90%] z-50'} isShowPlayBtn={true} />
             <Hub />
         </>
     )
