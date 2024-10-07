@@ -15,7 +15,7 @@ const Signin = () => {
 
     function handleLogin(e) {
         e.preventDefault()
-        router.push('/userprofile')
+        router.push('/signin/userprofile')
     }
     return (
         <>
