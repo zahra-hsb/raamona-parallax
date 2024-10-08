@@ -54,11 +54,33 @@ const Tabs = () => {
     return (
         <>
             <section className="w-full">
-                <div className="w-full flex gap-14 justify-center items-center">
-                    <span className="py-2 text-blue font-bold cursor-pointer border-b-2 border-b-orange">All Images</span>
-                    <span className="py-2 text-gray-500 cursor-pointer">For Coloring</span>
-                    <span className="py-2 text-gray-500 cursor-pointer">Color Image</span>
-                    <span className="py-2 text-gray-500 cursor-pointer">More...</span>
+                <div className="w-full flex gap-14 justify-between items-center">
+                    <div className="flex gap-5 px-5">
+                        <div className="py-2">
+                            <p className="text-gray-400 text-sm">Sort</p>
+                            <select className="bg-gray-200 cursor-pointer px-3 py-1 rounded">
+                                <option>Latest</option>
+                                <option>Favorite</option>
+                                <option>More Like</option>
+                            </select>
+                        </div>
+                        <div className="py-2">
+                            <p className="text-gray-400 text-sm">Category</p>
+                            <select className="bg-gray-200 cursor-pointer px-3 py-1 rounded">
+                                <option>Nature</option>
+                                <option>Human</option>
+                                <option>Decorasion</option>
+                                <option>Animal</option>
+                                <option>Mandala</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div className="flex gap-14 justify-center items-center w-full ">
+                        <span className="py-2 text-blue font-bold cursor-pointer border-b-2 border-b-orange">All Images</span>
+                        <span className="py-2 text-gray-500 cursor-pointer">For Coloring</span>
+                        <span className="py-2 text-gray-500 cursor-pointer">Color Image</span>
+                        <span className="py-2 text-gray-500 cursor-pointer">More...</span>
+                    </div>
                 </div>
                 {/* <div className="w-full flex gap-5 py-5">
                     <div ref={scrollRef} className="scroller w-screen flex flex-col gap-5 h-full">

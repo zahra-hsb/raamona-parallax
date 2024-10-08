@@ -18,6 +18,7 @@ import Tab from "@/components/globalComponents/Tab"
 import Input from "@/components/globalComponents/Input"
 import Textarea from "@/components/globalComponents/Textarea"
 import { useState } from "react"
+import Tabs from "@/components/homeComponents/Tabs"
 
 const tabArray = [
     { text: 'Information', id: 1 },
@@ -110,12 +111,13 @@ const Profile = () => {
                             </>
                         ))}
                     </div>
-                    <div className="px-32 py-10 flex flex-col gap-5">
+                    {selectedTab === 2 && <Tabs />}
+                    {selectedTab === 1 && <div className="px-32 py-10 flex flex-col gap-5">
                         <Input icon={dateIcon} id={'date'} maxLength={25} placeholder={'Birth Day'} type={'text'} width={'w-1/3'} />
                         <Input icon={dateIcon} id={'date'} maxLength={25} placeholder={'First/Last Name'} type={'text'} width={'w-1/3'} />
                         <Input icon={dateIcon} id={'date'} maxLength={25} placeholder={'First/Last Name'} type={'text'} width={'w-1/3'} />
                         <Textarea placeholder={'Description'}  icon={infoIcon} />
-                    </div>
+                    </div>}
                 </div>
             </div>
         </>
