@@ -10,7 +10,7 @@ import countryIcon from '../../../../public/icons/us.svg'
 import lock from '../../../../public/icons/Lock_duotone_line.svg'
 import searchIcon from '../../../../public/icons/Search_alt_duotone_line.svg'
 import shareIcon from '../../../../public/icons/group_share_light.svg'
-import hubIcon from '../../../../public/icons/group_share_light.svg'
+import hubIcon from '../../../../public/icons/Hub.svg'
 import starIcon from '../../../../public/icons/Star_duotone_line.svg'
 import dateIcon from '../../../../public/icons/Date_range_duotone_line.svg'
 import saveIcon from '../../../../public/icons/Save_duotone.svg'
@@ -51,12 +51,16 @@ const inputsArray = [
 
 const Profile = () => {
     const [showEditInfo, setShowEditInfo] = useState(false)
+    const [showSearchBox, setShowSearchBox] = useState(false)
 
     function handleShowEditInfo() {
         setShowEditInfo(true)
     }
     function handleSaveInfo() {
         setShowEditInfo(false)
+    }
+    function handleShowSearch() {
+        setShowSearchBox(!showSearchBox)
     }
     return (
         <>
@@ -105,9 +109,12 @@ const Profile = () => {
                             </span>
                             <span className="text-blue opacity-40 mr-1">Privet</span>
                         </span>
-                        <button className="bg-blue p-3 rounded-lg">
-                            <Image src={searchIcon} alt="" />
-                        </button>
+                        <div className="relative">
+                            <button onClick={handleShowSearch} className="bg-blue p-3 rounded-lg">
+                                <Image src={searchIcon} alt="" />
+                            </button>
+                            {showSearchBox && <input type="search" className="bg-gray-100 px-7 py-2 w-[200px] outline-none rounded-md absolute top-14 left-0" placeholder="Search Username..." />}
+                        </div>
                         <button onClick={handleShowEditInfo} className="bg-blue p-3 rounded-lg">
                             <Image src={editIcon} alt="" />
                         </button>
@@ -136,9 +143,9 @@ const Profile = () => {
                 </div>
                 <ProfileTabs
                     tabArray={tabArray}
-                    inputsArray={showEditInfo ? inputsArray : viewInputsArray} 
+                    inputsArray={showEditInfo ? inputsArray : viewInputsArray}
                     showEditInfo={showEditInfo}
-                    />
+                />
             </div>
         </>
     )
