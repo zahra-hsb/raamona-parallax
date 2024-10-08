@@ -7,7 +7,6 @@ import editIcon from '../../../../public/icons/Edit_duotone_line.svg'
 import PageTitle from "@/components/globalComponents/PageTitle"
 import Link from "next/link"
 import countryIcon from '../../../../public/icons/us.svg'
-import lock from '../../../../public/icons/Lock_duotone_line.svg'
 import searchIcon from '../../../../public/icons/Search_alt_duotone_line.svg'
 import hubIcon from '../../../../public/icons/Hub.svg'
 import starIcon from '../../../../public/icons/Star_duotone_line.svg'
@@ -22,6 +21,7 @@ import { useState } from "react"
 import ProfileTabs from "../ProfileTabs"
 import { useRouter } from "next/navigation"
 import ShareButton from "@/components/globalComponents/ShareButton"
+import Toggle from "../Toggle"
 
 
 const tabArray = [
@@ -53,6 +53,7 @@ const inputsArray = [
 const Profile = () => {
     const [showEditInfo, setShowEditInfo] = useState(false)
     const [showSearchBox, setShowSearchBox] = useState(false)
+    const [isPublic, setPublic] = useState(false)
 
     const router = useRouter()
 
@@ -64,6 +65,9 @@ const Profile = () => {
     }
     function handleShowSearch() {
         setShowSearchBox(!showSearchBox)
+    }
+    function handlePublic() {
+        setPublic(!isPublic)
     }
     return (
         <>
@@ -106,12 +110,7 @@ const Profile = () => {
                         </div>
                     </div>
                     <div className="flex gap-2 items-center justify-end">
-                        <span className="rounded-full flex items-center gap-1 border p-1 cursor-pointer">
-                            <span className="rounded-full bg-blue p-1">
-                                <Image src={lock} alt="" />
-                            </span>
-                            <span className="text-blue opacity-40 mr-1">Privet</span>
-                        </span>
+                        <Toggle handlePublic={handlePublic} isPublic={isPublic} />
                         <div className="relative">
                             <button onClick={handleShowSearch} className="bg-blue p-3 rounded-lg">
                                 <Image src={searchIcon} alt="" />
