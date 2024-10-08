@@ -13,7 +13,6 @@ import shareIcon from '../../../../public/icons/group_share_light.svg'
 import hubIcon from '../../../../public/icons/group_share_light.svg'
 import starIcon from '../../../../public/icons/Star_duotone_line.svg'
 import dateIcon from '../../../../public/icons/Date_range_duotone_line.svg'
-import infoIcon from '../../../../public/icons/Info_alt_duotone_line.svg'
 import saveIcon from '../../../../public/icons/Save_duotone.svg'
 import userIcon from '../../../../public/icons/User_alt_duotone_line.svg'
 import usernameIcon from '../../../../public/icons/User_duotone_line.svg'
@@ -25,6 +24,7 @@ import Input from "@/components/globalComponents/Input"
 import Textarea from "@/components/globalComponents/Textarea"
 import { useState } from "react"
 import Tabs from "@/components/homeComponents/Tabs"
+import ProfileTabs from "../ProfileTabs"
 
 
 const tabArray = [
@@ -49,11 +49,7 @@ const inputsArray = [
 
 
 const Profile = () => {
-    const [selectedTab, setSelectedTab] = useState(1)
-
-    function handleSelectTab(id) {
-        setSelectedTab(id)
-    }
+    
     return (
         <>
             <div className="w-full ">
@@ -128,26 +124,9 @@ const Profile = () => {
                         aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst
                     </p>
                 </div>
-                <div className=" py-10">
-                    <div className="flex gap-2 border-b px-32">
-                        {tabArray?.map(item => (
-                            <>
-                                <Tab isSelected={selectedTab === item.id} handleSelect={() => handleSelectTab(item.id)} text={item.text} key={item.id} />
-                            </>
-                        ))}
-                    </div>
-                    {selectedTab === 2 && <Tabs />}
-                    {selectedTab === 1 && <div className="px-32 py-10 flex flex-col gap-5">
-                        <div className="grid grid-cols-3 gap-10">
-                            {inputsArray?.map(item => (
-                                <>
-                                    <Input icon={item.icon} id={item.iId} maxLength={item.maxLength} placeholder={item.placeholder} type={item.type} width={'w-full'} />
-                                </>
-                            ))}
-                        </div>
-                        <Textarea placeholder={'Description'} icon={infoIcon} />
-                    </div>}
-                </div>
+                <ProfileTabs
+                    tabArray={tabArray}
+                    inputsArray={inputsArray} />
             </div>
         </>
     )
