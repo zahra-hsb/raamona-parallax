@@ -17,6 +17,7 @@ import infoIcon from '../../../../public/icons/Info_alt_duotone_line.svg'
 import Tab from "@/components/globalComponents/Tab"
 import Input from "@/components/globalComponents/Input"
 import Textarea from "@/components/globalComponents/Textarea"
+import { useState } from "react"
 
 const tabArray = [
     { text: 'Information', id: 1 },
@@ -26,7 +27,11 @@ const tabArray = [
 ]
 
 const Profile = () => {
+    const [selectedTab, setSelectedTab] = useState(1)
 
+    function handleSelectTab(id) {
+        setSelectedTab(id)
+    }
     return (
         <>
             <div className="w-full ">
@@ -101,7 +106,7 @@ const Profile = () => {
                     <div className="flex gap-2 border-b px-32">
                         {tabArray?.map(item => (
                             <>
-                                <Tab text={item.text} key={item.id} />
+                                <Tab isSelected={selectedTab === item.id} handleSelect={() => handleSelectTab(item.id)} text={item.text} key={item.id} />
                             </>
                         ))}
                     </div>
