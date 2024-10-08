@@ -14,11 +14,18 @@ import hubIcon from '../../../../public/icons/group_share_light.svg'
 import starIcon from '../../../../public/icons/Star_duotone_line.svg'
 import dateIcon from '../../../../public/icons/Date_range_duotone_line.svg'
 import infoIcon from '../../../../public/icons/Info_alt_duotone_line.svg'
+import saveIcon from '../../../../public/icons/Save_duotone.svg'
+import userIcon from '../../../../public/icons/User_alt_duotone_line.svg'
+import usernameIcon from '../../../../public/icons/User_duotone_line.svg'
+import passwordIcon from '../../../../public/icons/Password.svg'
+import countryInputIcon from '../../../../public/icons/world_2_light.svg'
+import mapIcon from '../../../../public/icons/Map_duotone_line.svg'
 import Tab from "@/components/globalComponents/Tab"
 import Input from "@/components/globalComponents/Input"
 import Textarea from "@/components/globalComponents/Textarea"
 import { useState } from "react"
 import Tabs from "@/components/homeComponents/Tabs"
+
 
 const tabArray = [
     { text: 'Information', id: 1 },
@@ -26,6 +33,20 @@ const tabArray = [
     { text: 'Analysis', id: 3 },
     { text: 'Coming soon...', id: 4 },
 ]
+
+const inputsArray = [
+    { icon: userIcon, iId: 'fName', maxLength: 25, placeholder: 'First name', type: 'text', width: 'w-full', id: 1 },
+    { icon: countryInputIcon, iId: 'country', maxLength: 25, placeholder: 'Country', type: 'text', width: 'w-full', id: 2 },
+    { icon: usernameIcon, iId: 'username', maxLength: 25, placeholder: '@username', type: 'text', width: 'w-full', id: 3 },
+    { icon: userIcon, iId: 'Last name', maxLength: 25, placeholder: 'Last name', type: 'text', width: 'w-full', id: 4 },
+    { icon: mapIcon, iId: 'city', maxLength: 25, placeholder: 'City', type: 'text', width: 'w-full', id: 5 },
+    { icon: passwordIcon, iId: 'password', maxLength: 25, placeholder: 'New Password', type: 'password', width: 'w-full', id: 6 },
+    { icon: userIcon, iId: 'mName', maxLength: 25, placeholder: 'Middle name', type: 'text', width: 'w-full', id: 7 },
+    { icon: dateIcon, iId: 'bDate', maxLength: 25, placeholder: 'Birth date', type: 'text', width: 'w-full', id: 8 },
+    { icon: passwordIcon, iId: 'cPass', maxLength: 25, placeholder: 'Confirm new password', type: 'password', width: 'w-full', id: 9 },
+
+]
+
 
 const Profile = () => {
     const [selectedTab, setSelectedTab] = useState(1)
@@ -86,6 +107,10 @@ const Profile = () => {
                         <button className="bg-blue p-3 rounded-lg">
                             <Image src={editIcon} alt="" />
                         </button>
+                        {/* edit view */}
+                        <button className="border-2 border-blue p-3 rounded-lg">
+                            <Image src={saveIcon} alt="" />
+                        </button>
                         <button className="bg-blue p-3 rounded-lg">
                             <Image src={shareIcon} alt="" />
                         </button>
@@ -113,10 +138,14 @@ const Profile = () => {
                     </div>
                     {selectedTab === 2 && <Tabs />}
                     {selectedTab === 1 && <div className="px-32 py-10 flex flex-col gap-5">
-                        <Input icon={dateIcon} id={'date'} maxLength={25} placeholder={'Birth Day'} type={'text'} width={'w-1/3'} />
-                        <Input icon={dateIcon} id={'date'} maxLength={25} placeholder={'First/Last Name'} type={'text'} width={'w-1/3'} />
-                        <Input icon={dateIcon} id={'date'} maxLength={25} placeholder={'First/Last Name'} type={'text'} width={'w-1/3'} />
-                        <Textarea placeholder={'Description'}  icon={infoIcon} />
+                        <div className="grid grid-cols-3 gap-10">
+                            {inputsArray?.map(item => (
+                                <>
+                                    <Input icon={item.icon} id={item.iId} maxLength={item.maxLength} placeholder={item.placeholder} type={item.type} width={'w-full'} />
+                                </>
+                            ))}
+                        </div>
+                        <Textarea placeholder={'Description'} icon={infoIcon} />
                     </div>}
                 </div>
             </div>
