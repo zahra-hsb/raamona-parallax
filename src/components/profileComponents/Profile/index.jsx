@@ -21,6 +21,7 @@ import countryInputIcon from '../../../../public/icons/world_2_light.svg'
 import mapIcon from '../../../../public/icons/Map_duotone_line.svg'
 import { useState } from "react"
 import ProfileTabs from "../ProfileTabs"
+import { useRouter } from "next/navigation"
 
 
 const tabArray = [
@@ -52,6 +53,8 @@ const inputsArray = [
 const Profile = () => {
     const [showEditInfo, setShowEditInfo] = useState(false)
     const [showSearchBox, setShowSearchBox] = useState(false)
+
+    const router = useRouter()
 
     function handleShowEditInfo() {
         setShowEditInfo(true)
@@ -127,7 +130,7 @@ const Profile = () => {
                         <button className="bg-blue p-3 rounded-lg">
                             <Image src={shareIcon} alt="" />
                         </button>
-                        <button className="bg-blue p-3 rounded-lg">
+                        <button onClick={() => router.push('/hub')} className="bg-blue p-3 rounded-lg">
                             <Image src={hubIcon} alt="" />
                         </button>
                         <button className="bg-blue p-3 rounded-lg">
