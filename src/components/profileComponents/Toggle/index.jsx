@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import lock from '../../../../public/icons/Lock_duotone_line.svg'
 import unlockIcon from '../../../../public/icons/Unlock_duotone_line.svg'
 
