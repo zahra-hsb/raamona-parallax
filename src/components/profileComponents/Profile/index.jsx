@@ -9,7 +9,6 @@ import Link from "next/link"
 import countryIcon from '../../../../public/icons/us.svg'
 import lock from '../../../../public/icons/Lock_duotone_line.svg'
 import searchIcon from '../../../../public/icons/Search_alt_duotone_line.svg'
-import shareIcon from '../../../../public/icons/group_share_light.svg'
 import hubIcon from '../../../../public/icons/Hub.svg'
 import starIcon from '../../../../public/icons/Star_duotone_line.svg'
 import dateIcon from '../../../../public/icons/Date_range_duotone_line.svg'
@@ -22,6 +21,7 @@ import mapIcon from '../../../../public/icons/Map_duotone_line.svg'
 import { useState } from "react"
 import ProfileTabs from "../ProfileTabs"
 import { useRouter } from "next/navigation"
+import ShareButton from "@/components/globalComponents/ShareButton"
 
 
 const tabArray = [
@@ -127,9 +127,7 @@ const Profile = () => {
                                 <Image src={saveIcon} alt="" />
                             </button>
                         }
-                        <button className="bg-blue p-3 rounded-lg">
-                            <Image src={shareIcon} alt="" />
-                        </button>
+                        <ShareButton title={'share'} url={'#'} />
                         <button onClick={() => router.push('/hub')} className="bg-blue p-3 rounded-lg">
                             <Image src={hubIcon} alt="" />
                         </button>
