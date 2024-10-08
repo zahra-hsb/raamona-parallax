@@ -19,11 +19,7 @@ import usernameIcon from '../../../../public/icons/User_duotone_line.svg'
 import passwordIcon from '../../../../public/icons/Password.svg'
 import countryInputIcon from '../../../../public/icons/world_2_light.svg'
 import mapIcon from '../../../../public/icons/Map_duotone_line.svg'
-import Tab from "@/components/globalComponents/Tab"
-import Input from "@/components/globalComponents/Input"
-import Textarea from "@/components/globalComponents/Textarea"
 import { useState } from "react"
-import Tabs from "@/components/homeComponents/Tabs"
 import ProfileTabs from "../ProfileTabs"
 
 
@@ -33,23 +29,35 @@ const tabArray = [
     { text: 'Analysis', id: 3 },
     { text: 'Coming soon...', id: 4 },
 ]
+const viewInputsArray = [
+    { icon: userIcon, iId: 'fName', maxLength: 25, placeholder: 'First name', type: 'text', width: 'w-1/3', disabled: true, id: 1 },
+    { icon: userIcon, iId: 'lName', maxLength: 25, placeholder: 'Last name', type: 'text', width: 'w-1/3', disabled: true, id: 1 },
+    { icon: dateIcon, iId: 'bDate', maxLength: 25, placeholder: 'Birth Date', type: 'text', width: 'w-1/3', disabled: true, id: 1 },
 
+]
 const inputsArray = [
-    { icon: userIcon, iId: 'fName', maxLength: 25, placeholder: 'First name', type: 'text', width: 'w-full', id: 1 },
-    { icon: countryInputIcon, iId: 'country', maxLength: 25, placeholder: 'Country', type: 'text', width: 'w-full', id: 2 },
-    { icon: usernameIcon, iId: 'username', maxLength: 25, placeholder: '@username', type: 'text', width: 'w-full', id: 3 },
-    { icon: userIcon, iId: 'Last name', maxLength: 25, placeholder: 'Last name', type: 'text', width: 'w-full', id: 4 },
-    { icon: mapIcon, iId: 'city', maxLength: 25, placeholder: 'City', type: 'text', width: 'w-full', id: 5 },
-    { icon: passwordIcon, iId: 'password', maxLength: 25, placeholder: 'New Password', type: 'password', width: 'w-full', id: 6 },
-    { icon: userIcon, iId: 'mName', maxLength: 25, placeholder: 'Middle name', type: 'text', width: 'w-full', id: 7 },
-    { icon: dateIcon, iId: 'bDate', maxLength: 25, placeholder: 'Birth date', type: 'text', width: 'w-full', id: 8 },
-    { icon: passwordIcon, iId: 'cPass', maxLength: 25, placeholder: 'Confirm new password', type: 'password', width: 'w-full', id: 9 },
+    { icon: userIcon, iId: 'fName', maxLength: 25, placeholder: 'First name', type: 'text', width: 'w-full', disabled: false, id: 1 },
+    { icon: userIcon, iId: 'Last name', maxLength: 25, placeholder: 'Last name', type: 'text', width: 'w-full', disabled: false, id: 4 },
+    { icon: userIcon, iId: 'mName', maxLength: 25, placeholder: 'Middle name', type: 'text', width: 'w-full', disabled: false, id: 7 },
+    { icon: countryInputIcon, iId: 'country', maxLength: 25, placeholder: 'Country', type: 'text', width: 'w-full', disabled: false, id: 2 },
+    { icon: mapIcon, iId: 'city', maxLength: 25, placeholder: 'City', type: 'text', width: 'w-full', disabled: false, id: 5 },
+    { icon: dateIcon, iId: 'bDate', maxLength: 25, placeholder: 'Birth date', type: 'text', width: 'w-full', disabled: false, id: 8 },
+    { icon: usernameIcon, iId: 'username', maxLength: 25, placeholder: '@username', type: 'text', width: 'w-full', disabled: false, id: 3 },
+    { icon: passwordIcon, iId: 'password', maxLength: 25, placeholder: 'New Password', type: 'password', width: 'w-full', disabled: false, id: 6 },
+    { icon: passwordIcon, iId: 'cPass', maxLength: 25, placeholder: 'Confirm new password', type: 'password', width: 'w-full', disabled: false, id: 9 },
 
 ]
 
 
 const Profile = () => {
-    
+    const [showEditInfo, setShowEditInfo] = useState(false)
+
+    function handleShowEditInfo() {
+        setShowEditInfo(true)
+    }
+    function handleSaveInfo() {
+        setShowEditInfo(false)
+    }
     return (
         <>
             <div className="w-full ">
@@ -100,13 +108,15 @@ const Profile = () => {
                         <button className="bg-blue p-3 rounded-lg">
                             <Image src={searchIcon} alt="" />
                         </button>
-                        <button className="bg-blue p-3 rounded-lg">
+                        <button onClick={handleShowEditInfo} className="bg-blue p-3 rounded-lg">
                             <Image src={editIcon} alt="" />
                         </button>
                         {/* edit view */}
-                        <button className="border-2 border-blue p-3 rounded-lg">
-                            <Image src={saveIcon} alt="" />
-                        </button>
+                        {showEditInfo &&
+                            <button onClick={handleSaveInfo} className="border-2 border-blue p-3 rounded-lg">
+                                <Image src={saveIcon} alt="" />
+                            </button>
+                        }
                         <button className="bg-blue p-3 rounded-lg">
                             <Image src={shareIcon} alt="" />
                         </button>
@@ -126,7 +136,9 @@ const Profile = () => {
                 </div>
                 <ProfileTabs
                     tabArray={tabArray}
-                    inputsArray={inputsArray} />
+                    inputsArray={showEditInfo ? inputsArray : viewInputsArray} 
+                    showEditInfo={showEditInfo}
+                    />
             </div>
         </>
     )

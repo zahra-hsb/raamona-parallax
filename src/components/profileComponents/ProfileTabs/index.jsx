@@ -5,7 +5,7 @@ import infoIcon from '../../../../public/icons/Info_alt_duotone_line.svg'
 import { useState } from "react"
 import Input from "@/components/globalComponents/Input"
 
-const ProfileTabs = ({ tabArray, inputsArray }) => {
+const ProfileTabs = ({ tabArray, inputsArray, showEditInfo }) => {
     const [selectedTab, setSelectedTab] = useState(1)
 
     function handleSelectTab(id) {
@@ -23,14 +23,14 @@ const ProfileTabs = ({ tabArray, inputsArray }) => {
                 </div>
                 {selectedTab === 2 && <Tabs />}
                 {selectedTab === 1 && <div className="px-32 py-10 flex flex-col gap-5">
-                    <div className="grid grid-cols-3 gap-10">
+                    <div className="grid grid-flow-col grid-rows-3 gap-10">
                         {inputsArray?.map(item => (
                             <>
-                                <Input icon={item.icon} id={item.iId} maxLength={item.maxLength} placeholder={item.placeholder} type={item.type} width={'w-full'} />
+                                <Input disabled={item.disabled} icon={item.icon} id={item.iId} maxLength={item.maxLength} placeholder={item.placeholder} type={item.type} width={item.width} />
                             </>
                         ))}
                     </div>
-                    <Textarea placeholder={'Description'} icon={infoIcon} />
+                    <Textarea disabled={showEditInfo ? false : true} placeholder={'Description'} icon={infoIcon} />
                 </div>}
             </div>
         </>
