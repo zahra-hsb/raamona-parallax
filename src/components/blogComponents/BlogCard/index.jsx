@@ -17,8 +17,8 @@ const BlogCard = ({ image, title, text, style }) => {
     return (
         <>
             <CardContainer style={style}>
-                <Image src={image} alt="" />
-                <div className="flex flex-col h-full items-start justify-between">
+                <Image src={image} alt="" className="w-full" />
+                <div className="flex flex-col h-full items-start gap-2 justify-between">
                     <DateAndViews date={date} style={'!text-gray-500 !mt-0'} />
                     <h3 className="text-3xl">{title}</h3>
                     <p className="text-gray-500 ">{text}</p>

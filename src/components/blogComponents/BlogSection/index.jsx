@@ -11,7 +11,7 @@ const BlogSection = () => {
     return (
         <>
             <section className="py-5 px-20 flex gap-10">
-                {array != null && <BlogCard image={array[0].image} title={array[0].title} text={array[0].text} style={'w-1/2'} />}
+                {array != null && <BlogCard image={array[0].image} title={array[0].title} text={array[0].text} style={'!w-2/3'} />}
 
                 <div className="flex flex-col gap-5">
                     {array != null && array.splice(1, 2).map((item) => (
