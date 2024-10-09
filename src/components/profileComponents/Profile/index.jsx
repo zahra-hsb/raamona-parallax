@@ -17,6 +17,10 @@ import { useState } from "react"
 import ProfileTabs from "../ProfileTabs"
 import AccountButtons from "../AccountButtons"
 
+const viewtabArray = [
+    { text: 'Generation', id: 1 },
+    { text: 'Coming soon...', id: 2 },
+]
 
 const tabArray = [
     { text: 'Information', id: 1 },
@@ -116,7 +120,8 @@ const Profile = ({ isViewMode }) => {
                     </p>
                 </div>
                 <ProfileTabs
-                    tabArray={tabArray}
+                    isViewMode={isViewMode}
+                    tabArray={isViewMode ? viewtabArray : tabArray}
                     inputsArray={showEditInfo ? inputsArray : viewInputsArray}
                     showEditInfo={showEditInfo}
                 />

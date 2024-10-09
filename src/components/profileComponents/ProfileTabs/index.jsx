@@ -5,7 +5,7 @@ import infoIcon from '../../../../public/icons/Info_alt_duotone_line.svg'
 import { useState } from "react"
 import Input from "@/components/globalComponents/Input"
 
-const ProfileTabs = ({ tabArray, inputsArray, showEditInfo }) => {
+const ProfileTabs = ({ tabArray, inputsArray, showEditInfo, isViewMode }) => {
     const [selectedTab, setSelectedTab] = useState(1)
 
     function handleSelectTab(id) {
