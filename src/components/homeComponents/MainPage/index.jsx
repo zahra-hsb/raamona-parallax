@@ -15,7 +15,7 @@ const MainPage = () => {
     return (
         <>
             <Main />
-            <Tabs />
+            <Tabs Home={true} />
             <RaamonaInfo />
             <FaQ />
             <Footer isShow={true} />
