@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: minion;
+  src: url(./../../public/fonts/MinionPro-Regular.woff);
+}
+
+h3 {
+  font-weight: 800;
+}
+
+h5 {
+  font-weight: 600;
+}
+
+body>div.w-full.h-screen.rounded-b-3xl.overflow-hidden>div>div.swiper-pagination.swiper-pagination-bullets-dynamic.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal>span.swiper-pagination-bullet.swiper-pagination-bullet-active.swiper-pagination-bullet-active-main {
+  background-color: orange !important;
+  width: 16px;
+  height: 16px;
+}
+
+body>div.w-full.h-screen.rounded-b-3xl.overflow-hidden>div>div.swiper-pagination.swiper-pagination-bullets-dynamic.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal>span.swiper-pagination-bullet {
+  width: 14px;
+  height: 14px;
+  background-color: white !important;
+  opacity: 100 !important;
+}
+
+body>div.w-full.h-screen.rounded-b-3xl.overflow-hidden>div>div.swiper-pagination.swiper-pagination-bullets-dynamic.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+  padding: 10px;
+}
+
+.progress-ring__circle {
+  stroke-dasharray: 400, 400;
+  transition: stroke-dashoffset 0.35s;
+  transform: rotate(90deg);
+  transform-origin: 50% 50%;
+}
+
+:root {}
+
+@media (prefers-color-scheme: dark) {
+  :root {}
+}
+
+body {
+  font-family: minion;
+}
+
+@keyframes loop {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+
+  0% {
+    transform: translateX(0%);
+
+  }
+
+}
+
+.loop {
+  animation: loop 10s linear infinite;
+  overflow: hidden;
+  display: flex; /* Make sure the flex display is here */  
+  white-space: nowrap;
+}
+
+.shadow-top {
+  box-shadow: 0 15px 20px -10px rgb(0 0 0 / 0.1),
+  0 -15px 20px -10px white;
+}
+
+.scroller{
+  overflow: hidden;
+}
+
+@layer utilities {}
