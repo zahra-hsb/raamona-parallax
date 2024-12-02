@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.apple',
     'social_django',
     'drf_yasg',
+    'dj_rest_auth.registration',
 ]
 
 
@@ -77,21 +78,29 @@ AUTHENTICATION_BACKENDS = (
 
 from datetime import timedelta
 
+AUTH_USER_MODEL = 'Users.CustomUser'
+
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5000),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=10),
-    'ROTATE_REFRESH_TOKENS': True,
-    'BLACKLIST_AFTER_ROTATION': True,
-    'ALGORITHM': 'HS256',
-    'SIGNING_KEY': SECRET_KEY,
-    'AUTH_HEADER_TYPES': ('Bearer',),
-    'AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',
-    'USER_ID_FIELD': 'id',
-    'USER_ID_CLAIM': 'user_id',
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=3000),  # زمان انقضای توکن دسترسی
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=2),  # زمان انقضای توکن رفرش
+    'ROTATE_REFRESH_TOKENS': False,  # جلوگیری از تولید مجدد توکن رفرش
+    'ALGORITHM': 'HS256',  # الگوریتم امضای JWT
+    'SIGNING_KEY': SECRET_KEY,  # کلید امضای JWT
+    'VERIFYING_KEY': None,
+    'AUTH_HEADER_TYPES': ('Bearer',),  # نوع هدر برای ارسال توکن
+    'USER_ID_FIELD': 'email',  # شناسه کاربر (بر اساس ایمیل)
+    'USER_ID_CLAIM': 'username',  # فیلد نمایشی کاربر
     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
     'TOKEN_TYPE_CLAIM': 'token_type',
-    'JTI_CLAIM': 'jti',
-    'TOKEN_BLACKLIST': True,
+}
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+        "rest_framework_simplejwt.authentication.JWTAuthentication",  # احراز هویت JWT
+    ],
 }
 
 
