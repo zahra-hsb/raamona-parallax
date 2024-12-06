@@ -54,7 +54,7 @@ const Tabs = () => {
     return (
         <>
             <section className="w-full">
-                <div className="w-full flex gap-14 justify-between items-center">
+                <div className="w-full flex gap-14 justify-center items-center">
                     <div className="flex gap-5 px-5">
                         <div className="py-2">
                             <p className="text-gray-400 text-sm">Sort</p>
