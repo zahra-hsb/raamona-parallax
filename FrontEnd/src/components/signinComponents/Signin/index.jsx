@@ -9,7 +9,7 @@ import user from '../../../../public/icons/user.svg'
 import Button from "@/components/globalComponents/Button"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const Signin = () => {
     const router = useRouter()
@@ -18,6 +18,13 @@ const Signin = () => {
         email: '',
         username: '',
         password: ''
+    })
+
+    const [isValidForm, setValidForm] = useState(false)
+
+    const [error, setError] = useState({
+        message: '',
+        color: ''
     })
 
     function handleChangeValues(e) {
@@ -41,6 +48,14 @@ const Signin = () => {
             console.log('error=> ', error);
         }
     }
+
+    useEffect(() => {
+        setValidForm(
+            values.email &&
+            values.password &&
+            values.password.length >= 8
+        );
+    }, [values])
     return (
         <>
             <section className="flex ">
@@ -78,7 +93,11 @@ const Signin = () => {
                                         width={'w-full'}
                                         onChange={handleChangeValues}
                                     />
+                                    {error && <div className={`text-${error.color}`}>
+                                        {error.message}
+                                    </div>}
                                     <Button
+                                        disabled={isValidForm ? false : true}
                                         onClick={(e) => handleLogin(e)}
                                         text={'Login'}
                                         style={'w-full mt-5'} />

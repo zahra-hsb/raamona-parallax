@@ -50,9 +50,9 @@ const Signup = () => {
     }
     function handlePasswordValidation() {
         if (values.password !== values.confirmPassword) {
-            setError({ message: 'با رمز عبور وارد شده مطابقت ندارد.', color: '#ff0000' })
-        } else if (values.password.length < 8 || values.cPassword.length < 8) {
-            setError({ message: 'تعداد کاراکترهای وارد شده باید 8 کاراکتر باشد.', color: '#ff0000' })
+            setError({ message: 'the password is not correct!', color: '#ff0000' })
+        } else if (values.password.length < 8 || values.confirmPassword.length < 8) {
+            setError({ message: 'the password must be greater than 8 characters!', color: '#ff0000' })
         } else {
             setError({ message: '', color: '' })
         }
@@ -74,17 +74,16 @@ const Signup = () => {
     useEffect(() => {
         const passwordsMatch = values.password === values.confirmPassword;
         setValidForm(
-            values.email &&
-            values.tel &&
-            values.password &&
-            passwordsMatch &&
-            values.password.length >= 8 &&
-            values.confirmPassword.length >= 8 &&
             values.firstName &&
             values.lastName &&
+            values.username &&
+            values.password &&
+            values.confirmPassword.length >= 8 &&
+            values.email &&
             values.phone &&
             values.userRole &&
-            values.username
+            passwordsMatch &&
+            values.password.length >= 8
         );
     }, [values])
     return (
@@ -201,7 +200,7 @@ const Signup = () => {
                                 {/* </ul> */}
                             </select>
                             <Image src={arrow} alt="" className="rotate-180 absolute z-30 hidden" />
-                            {error && <div className={`text-${error.color}`}>
+                            {error && <div style={{ color: error.color }}>
                                 {error.message}
                             </div>}
                             <Button disabled={isValidForm ? false : true} type={'submit'} text={'Create Account'} />
