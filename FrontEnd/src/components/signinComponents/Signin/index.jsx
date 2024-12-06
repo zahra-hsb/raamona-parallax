@@ -27,9 +27,19 @@ const Signin = () => {
         })
     }
 
-    function handleLogin(e) {
+    async function handleLogin(e) {
         e.preventDefault()
-        router.push('/signin/userprofile')
+        try {
+            const response = await fetch(`/api/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: values
+            })
+            console.log('res: ', await response.json());
+            router.push('/signin/userprofile')
+        } catch (error) {
+            console.log('error=> ', error);
+        }
     }
     return (
         <>
