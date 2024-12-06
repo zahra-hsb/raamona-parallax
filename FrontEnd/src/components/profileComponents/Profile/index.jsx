@@ -23,12 +23,21 @@ import { useState } from "react"
 import ProfileTabs from "../ProfileTabs"
 
 
-const tabArray = [
+export const tabArray = [
     { text: 'Information', id: 1 },
     { text: 'Generation', id: 2 },
     { text: 'Analysis', id: 3 },
     { text: 'Coming soon...', id: 4 },
 ]
+
+export const tabsArray = [
+    { text: 'All Images', id: 1 },
+    { text: 'For Coloring', id: 2 },
+    { text: 'Color Image', id: 3 },
+    { text: 'Hub', id: 4 },
+    { text: 'More...', id: 5 },
+]
+
 const viewInputsArray = [
     { icon: userIcon, iId: 'fName', maxLength: 25, placeholder: 'First name', type: 'text', width: 'w-1/3', disabled: true, id: 1 },
     { icon: userIcon, iId: 'lName', maxLength: 25, placeholder: 'Last name', type: 'text', width: 'w-1/3', disabled: true, id: 1 },
