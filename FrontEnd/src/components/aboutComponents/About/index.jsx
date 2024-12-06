@@ -33,7 +33,12 @@ const About = () => {
                     </div>
                     <div>
                         <p className="text-justify bg-gray-200 p-5 rounded-xl">
-                            Lorem ipsum dolor sit amet consectetur. Ullamcorper quam et placerat ultrices. Quisque lorem ornare et faucibus morbi egestas. Et hac egestas massa facilisis aliquam a imperdiet ut id. Phasellus morbi sit odio dignissim ac potenti. Luctus porttitor mollis malesuada rhoncus libero quis. In erat nulla nulla ipsum. Mauris ut porttitor donec placerat congue magnis aenean pellentesque amet. Facilisi a turpis tortor gravida ornare enim tempus mi odio. Tempor ullamcorper eu quam sed tristique massa. Non odio a urna adipiscing lectus eget. Turpis imperdiet integer pellentesque amet sollicitudin. Volutpat morbi parturient scelerisque bibendum egestas. Vitae.
+                            Back in school, I was often just going through the motions, pretending to listen. The more serious things got, the less I could focus. Until one day, I stumbled upon a bit of a secret: the less seriously I took things, the better everything seemed to turn out. By the time I reached university, no subject felt particularly important. Sometimes, during revision weeks, I’d head off on holiday, only to come back and somehow end up with better marks than those who’d spent the entire time studying!
+                            Then came work. The old 9-to-5, being watched over, and the dreaded in-office routine. I found this one particularly hard. I’d usually finish my tasks in half the time, then either had to pretend to be busy or do double the work, yet get paid the same as everyone else. This, I soon realised, was a fairly typical experience for someone with ADHD.
+                            That’s when I discovered colouring books – honestly, they were like magic. Just half an hour of colouring a day, and suddenly my mind wasn’t so overwhelmed. Come bedtime, instead of my thoughts racing through the chaos of the day, it was as if the colours were swirling gently in my head, and I felt at peace. One day, it struck me: why shouldn’t everyone be able to create their own artwork to colour? Why shouldn’t we all have a new, personal image to wake up to every day?
+                            My overactive mind needed something fresh, something exciting, a reason to get up in the morning knowing that today wouldn’t be just like yesterday. And for me, it was the colours that worked wonders. My mind finally settled, and for the first time in ages, I could turn the pages of my planner without feeling completely frazzled.
+                            Then I thought, why not share this little bit of magic with everyone? And that’s where Raamona began.
+                            You know what the real magic was? By colouring again, it was like I’d returned to that place where nothing felt too serious anymore!
                         </p>
                     </div>
                     <ProgressSection />
@@ -41,7 +46,7 @@ const About = () => {
                         {dataArray.length !== 0 ? dataArray?.map((item, index) => (
                             <>
                                 <div className="flex items-start gap-2 flex-col">
-                                    <Image src={item.image} alt="" className="w-full"/>
+                                    <Image src={item.image} alt="" className="w-full" />
                                     <h3 className="text-2xl">{item.name}</h3>
                                     <h4 className="text-xl font-semibold">{item.job}</h4>
                                     <h5 className="text-lg">{item.education}</h5>
