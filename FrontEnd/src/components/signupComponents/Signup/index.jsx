@@ -17,9 +17,25 @@ import LoginBg from "@/components/globalComponents/LoginBg"
 
 const options = ['accordion option', 'accordion option', 'accordion option', 'accordion option']
 const Signup = () => {
-
+    const [values, setValues] = useState({
+        firstName: '',
+        lastName: '',
+        username: '',
+        password: '',
+        confirmPassword: '',
+        email: '',
+        phone: '',
+        option: ''
+    })
     const [isShowOption, setShowOptions] = useState(false)
 
+
+    function handleChangeValues(e) {
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value
+        })
+    }
     function handleShowOptions() {
         setShowOptions(!isShowOption)
     }
@@ -33,20 +49,96 @@ const Signup = () => {
                         <SocialLogin />
                         <form className="flex flex-col gap-2">
                             <div className="flex gap-2 justify-between items-center">
-                                <Input id={'firstName'} label={'FIRST NAME*'} maxLength={20} placeholder={'Enter first name'} style={'border border-gray-500'} icon={user} />
-                                <Input id={'lastName'} label={'LAST NAME*'} maxLength={20} placeholder={'Enter last name'} style={'border border-gray-500'} icon={user} />
+                                <Input
+                                    id={'firstName'}
+                                    value={values.firstName}
+                                    name={'firstName'}
+                                    label={'FIRST NAME*'}
+                                    maxLength={20}
+                                    placeholder={'Enter first name'}
+                                    style={'border border-gray-500'}
+                                    icon={user}
+                                    onChange={handleChangeValues}
+                                />
+                                <Input
+                                    value={values.lastName}
+                                    id={'lastName'}
+                                    name={'lastName'}
+                                    label={'LAST NAME*'}
+                                    onChange={handleChangeValues}
+                                    maxLength={20}
+                                    placeholder={'Enter last name'}
+                                    style={'border border-gray-500'}
+                                    icon={user} />
                             </div>
                             <div className="flex gap-2 justify-between items-start">
-                                <Input id={'username'} label={'USERNAME*'} maxLength={20} placeholder={'Enter username'} style={'border border-gray-500'} icon={username} />
+                                <Input
+                                    id={'username'}
+                                    value={values.username}
+                                    onChange={handleChangeValues}
+                                    name={'username'}
+                                    label={'USERNAME*'}
+                                    maxLength={20}
+                                    placeholder={'Enter username'}
+                                    style={'border border-gray-500'}
+                                    icon={username}
+                                />
                                 <div className="flex flex-col gap-2">
-                                    <Input type={'password'} id={'password'} label={'PASSWORD*'} maxLength={20} placeholder={'Create a password'} style={'border border-gray-500'} icon={password} />
-                                    <Input id={'confirmPassword'} maxLength={20} placeholder={'Confirm your password'} style={'border border-gray-500'} icon={password} />
+                                    <Input
+                                        value={values.username}
+                                        type={'password'}
+                                        onChange={handleChangeValues}
+                                        id={'password'}
+                                        name={'password'}
+                                        label={'PASSWORD*'}
+                                        maxLength={20}
+                                        placeholder={'Create a password'}
+                                        style={'border border-gray-500'}
+                                        icon={password}
+                                    />
+                                    <Input
+                                        value={values.confirmPassword}
+                                        id={'confirmPassword'}
+                                        name={'confirmPassword'}
+                                        onChange={handleChangeValues}
+                                        maxLength={20}
+                                        placeholder={'Confirm your password'}
+                                        style={'border border-gray-500'}
+                                        icon={password}
+                                    />
                                 </div>
                             </div>
-                            <Input id={'email'} label={'EMAIL*'} maxLength={20} placeholder={'Enter an Email'} type={'email'} style={'border border-gray-500'} icon={email} />
-                            <Input id={'phone'} label={'PHONE NUMBER*'} maxLength={20} placeholder={'+1'} type={'email'} style={'border border-gray-500'} icon={phone} />
+                            <Input
+                                id={'email'}
+                                name={'email'}
+                                value={values.email}
+                                onChange={handleChangeValues}
+                                label={'EMAIL*'}
+                                maxLength={20}
+                                placeholder={'Enter an Email'}
+                                type={'email'}
+                                style={'border border-gray-500'}
+                                icon={email}
+                            />
+                            <Input
+                                id={'phone'}
+                                name={'phone'}
+                                value={values.phone}
+                                label={'PHONE NUMBER*'}
+                                maxLength={20}
+                                placeholder={'+1'}
+                                onChange={handleChangeValues}
+                                type={'email'}
+                                style={'border border-gray-500'}
+                                icon={phone}
+                            />
 
-                            <select onClick={handleShowOptions} className="border outline-none border-gray-500 px-5 py-2 rounded-lg shadow-lg my-5 cursor-pointer text-blue font-bold flex justify-between items-center relative">
+                            <select onClick={handleShowOptions} className="border outline-none border-gray-500 px-5 py-2 rounded-lg shadow-lg my-5 cursor-pointer text-blue font-bold flex justify-between items-center relative"
+                                value={values.option}
+                                onChange={handleChangeValues}
+                                name={'option'}
+
+                            >
                                 <option>
                                     CHOOSE AN OPTION
                                 </option>
@@ -59,7 +151,7 @@ const Signup = () => {
                                 {/* </ul> */}
                             </select>
                             <Image src={arrow} alt="" className="rotate-180 absolute z-30 hidden" />
-                            <Button text={'Create Account'} />
+                            <Button type={'submit'} text={'Create Account'} />
 
                         </form>
                         <div className="py-2">
