@@ -4,6 +4,7 @@ import Tabs from "@/components/homeComponents/Tabs"
 import infoIcon from '../../../../public/icons/Info_alt_duotone_line.svg'
 import { useState } from "react"
 import Input from "@/components/globalComponents/Input"
+import TabsComponent from "@/components/globalComponents/Tabs"
 
 const ProfileTabs = ({ tabArray, inputsArray, showEditInfo }) => {
     const [selectedTab, setSelectedTab] = useState(1)
@@ -14,20 +15,12 @@ const ProfileTabs = ({ tabArray, inputsArray, showEditInfo }) => {
     return (
         <>
             <div className=" py-10">
-                <div className="flex gap-2 border-b px-32">
-                    {tabArray?.map(item => (
-                        <>
-                            <Tab isSelected={selectedTab === item.id} handleSelect={() => handleSelectTab(item.id)} text={item.text} key={item.id} />
-                        </>
-                    ))}
-                </div>
+                <TabsComponent handleSelectTab={handleSelectTab} selectedTab={selectedTab} tabArray={tabArray} />
                 {selectedTab === 2 && <Tabs />}
                 {selectedTab === 1 && <div className="px-32 py-10 flex flex-col gap-5">
                     <div className="grid grid-flow-col grid-rows-3 gap-10">
                         {inputsArray?.map(item => (
-                            <>
-                                <Input disabled={item.disabled} icon={item.icon} id={item.iId} maxLength={item.maxLength} placeholder={item.placeholder} type={item.type} width={item.width} />
-                            </>
+                            <Input disabled={item.disabled} icon={item.icon} id={item.iId} maxLength={item.maxLength} placeholder={item.placeholder} type={item.type} width={item.width} key={item.iId} />
                         ))}
                     </div>
                     <Textarea disabled={showEditInfo ? false : true} placeholder={'Description'} icon={infoIcon} />
