@@ -3,7 +3,7 @@ import React from 'react';
 function Progress({ percentage, value, text }) { 
 
     return (
-        <div class="relative w-40 h-40">
+        <div class="relative w-40">
             <svg class="w-full h-full" viewBox="0 0 100 100">
                 {/* <!-- Background circle --> */}
                 <circle
