@@ -23,7 +23,7 @@ class UserProfileView(RetrieveUpdateAPIView):
     serializer_class = UserProfileSerializer
 
     def get_object(self):
-        return self.request.user.userprofile
+        return self.request.user.profile 
 
     def patch(self, request, *args, **kwargs):
         profile = self.get_object()

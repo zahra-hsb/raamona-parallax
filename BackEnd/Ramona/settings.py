@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'social_django',
     'drf_yasg',
     'dj_rest_auth.registration',
+    'Profile',
 ]
 
 

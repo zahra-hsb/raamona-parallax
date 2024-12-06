@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from PIL import Image
 import os
 
+
 # User Profile Model
 class UserProfile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="profile")
