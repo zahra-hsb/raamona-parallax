@@ -39,6 +39,19 @@ const Signup = () => {
     function handleShowOptions() {
         setShowOptions(!isShowOption)
     }
+    async function handleSubmit(e) {
+        e.preventDefault()
+        try {
+            const response = await fetch(`/api/register`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: values
+            })
+            console.log('res: ', await response.json());
+        } catch (error) {
+            console.log('error=> ', error);
+        }
+    }
     return (
         <>
             <section className="flex">
@@ -47,7 +60,7 @@ const Signup = () => {
                     <div className="p-16 flex flex-col gap-5">
                         <h2 className="text-4xl">Create account</h2>
                         <SocialLogin />
-                        <form className="flex flex-col gap-2">
+                        <form onSubmit={handleSubmit} className="flex flex-col gap-2">
                             <div className="flex gap-2 justify-between items-center">
                                 <Input
                                     id={'firstName'}
@@ -85,7 +98,7 @@ const Signup = () => {
                                 />
                                 <div className="flex flex-col gap-2">
                                     <Input
-                                        value={values.username}
+                                        value={values.password}
                                         type={'password'}
                                         onChange={handleChangeValues}
                                         id={'password'}
@@ -98,6 +111,7 @@ const Signup = () => {
                                     />
                                     <Input
                                         value={values.confirmPassword}
+                                        type={'password'}
                                         id={'confirmPassword'}
                                         name={'confirmPassword'}
                                         onChange={handleChangeValues}
@@ -128,7 +142,7 @@ const Signup = () => {
                                 maxLength={20}
                                 placeholder={'+1'}
                                 onChange={handleChangeValues}
-                                type={'email'}
+                                type={'tel'}
                                 style={'border border-gray-500'}
                                 icon={phone}
                             />
