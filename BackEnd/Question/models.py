@@ -3,7 +3,7 @@ from Users.models import CustomUser
 
 class AnxietyQuestion(models.Model):
     text = models.TextField()
-    choices = models.JSONField()  # لیست گزینه‌ها با امتیازات
+    choices = models.JSONField()  # list of options and choices
 
 class UserAnxietyResponse(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
