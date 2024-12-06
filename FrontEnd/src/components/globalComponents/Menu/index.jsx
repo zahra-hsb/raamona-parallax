@@ -1,39 +1,22 @@
 import Link from "next/link"
 
 const Menu = ({ style, whichMenu }) => {
+
     const menu = [
-        { title: 'Home', link: '/' },
-        { title: 'Blog', link: '/blog' },
-        { title: 'Contact Us', link: '/contact' },
-        { title: 'About Us', link: '/about' }
-    ]
-    const menu2 = [
-        { title: 'Home', link: '/' },
-        { title: 'Book Shelf', link: '/bookshelf' },
-        { title: 'Blog', link: '/blog' },
-        { title: 'Price', link: '/price' }
+        { id: 0, title: 'Home', link: '/' },
+        { id: 1, title: 'Blog', link: '/blog' },
+        { id: 2, title: 'Contact us', link: '/contact' },
+        { id: 3, title: 'About us', link: '/about' }
     ]
     return (
         <>
             <ul className={`flex justify-center items-center py-2 font-semibold overflow-hidden flex-nowrap mx-5 ` + style}>
-                {whichMenu ? menu.map(item => (
-                    <>
-                        <li>
-                            <Link className="text-nowrap" href={item.link} >
-                                {item.title}
-                            </Link>
-                        </li>
-                    </>
-                ))
-                :
-                menu2.map(item => (
-                    <>
-                        <li>
-                            <Link className="text-nowrap" href={item.link} >
-                                {item.title}
-                            </Link>
-                        </li>
-                    </>
+                {menu.map(item => (
+                    <li key={item.id}>
+                        <Link className="text-nowrap" href={item.link} >
+                            {item.title}
+                        </Link>
+                    </li>
                 ))}
             </ul>
         </>
