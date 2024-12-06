@@ -9,9 +9,23 @@ import user from '../../../../public/icons/user.svg'
 import Button from "@/components/globalComponents/Button"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { useState } from "react"
 
 const Signin = () => {
     const router = useRouter()
+
+    const [values, setValues] = useState({
+        email: '',
+        username: '',
+        password: ''
+    })
+
+    function handleChangeValues(e) {
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value
+        })
+    }
 
     function handleLogin(e) {
         e.preventDefault()
@@ -30,11 +44,34 @@ const Signin = () => {
                             </div>
                             <form className="flex flex-col gap-2">
                                 <div className="flex flex-col gap-2 justify-between items-center">
-                                    <Input type={'text'} id={'emailUser'} label={'Email or Username'} maxLength={20} placeholder={'Enter a Email / Username'} style={'border border-gray-500'} icon={user} width={'w-full'} />
-
-                                    <Input type={'password'} id={'password'} label={'Password'} maxLength={20} placeholder={'Enter your password'} style={'border border-gray-500'} icon={password} width={'w-full'} />
-                                    <Button onClick={(e) => handleLogin(e)}
-                                        text={'Login'} style={'w-full mt-5'} />
+                                    <Input
+                                        type={'text'}
+                                        id={'emailUser'}
+                                        name={'emailUser'}
+                                        label={'Email or Username'}
+                                        maxLength={20}
+                                        placeholder={'Enter a Email / Username'}
+                                        style={'border border-gray-500'}
+                                        icon={user}
+                                        width={'w-full'}
+                                        onChange={handleChangeValues}
+                                    />
+                                    <Input
+                                        type={'password'}
+                                        id={'password'}
+                                        name={'password'}
+                                        label={'Password'}
+                                        maxLength={20}
+                                        placeholder={'Enter your password'}
+                                        style={'border border-gray-500'}
+                                        icon={password}
+                                        width={'w-full'}
+                                        onChange={handleChangeValues}
+                                    />
+                                    <Button
+                                        onClick={(e) => handleLogin(e)}
+                                        text={'Login'}
+                                        style={'w-full mt-5'} />
                                 </div>
                             </form>
                         </div>
