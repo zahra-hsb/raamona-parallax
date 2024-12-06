@@ -14,9 +14,7 @@ const Hub = () => {
         <>
             <section className="my-10 px-20 flex flex-col gap-5">
                 {array.map((item, index) => (
-                    <>
-                        <HubSection alt={item.alt} avatar={item.avatar} category={item.category} image={item.image} username={item.username} key={index} />
-                    </>
+                    <HubSection alt={item.alt} avatar={item.avatar} category={item.category} image={item.image} username={item.username} key={index} />
                 ))}
             </section>
         </>

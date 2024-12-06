@@ -51,7 +51,7 @@ const Signin = () => {
 
     useEffect(() => {
         setValidForm(
-            values.email &&
+            values.emailUser &&
             values.password &&
             values.password.length >= 8
         );

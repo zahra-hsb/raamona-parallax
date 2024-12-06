@@ -12,10 +12,10 @@ import pic6 from '../../../../public/images/about/Frame 139.png'
 const About = () => {
 
     const dataArray = [
-        { image: pic1, name: 'Fateme Zargar', job: 'CEO', education: 'Education', detail: 'Fateme Zargar is the visionary leader driving the company’s success. With years of experience in business development and a passion for innovation, she leads the team with dedication and strategic insight.' },
-        { image: pic2, name: 'Ardalan Farzin', job: 'CMDo (Chief Marketing and Development Officer)', education: 'Education', detail: 'Ardalan Farzin brings a wealth of expertise in marketing and development to the table. His role involves crafting and executing growth strategies that align with the company’s mission.' },
-        { image: pic3, name: 'Hosein Fatholahi', job: 'CTO (Chief Technology Officer)', education: 'Education', detail: 'As the CTO, Hosein Fatholahi is responsible for overseeing the company’s technological direction. His innovative approach ensures that the business remains at the forefront of technological advancements.' },
-        { image: pic4, name: 'Nilofar Zargar', job: 'Art Specialist', education: 'Education', detail: 'Nilofar Zargar combines creativity with a deep understanding of art therapy. She plays a pivotal role in integrating art-based approaches into the company’s initiatives, enhancing team wellness and innovation.' },
+        { id: 1, image: pic1, name: 'Fateme Zargar', job: 'CEO', education: 'Education', detail: 'Fateme Zargar is the visionary leader driving the company’s success. With years of experience in business development and a passion for innovation, she leads the team with dedication and strategic insight.' },
+        { id: 2, image: pic2, name: 'Ardalan Farzin', job: 'CMDo (Chief Marketing and Development Officer)', education: 'Education', detail: 'Ardalan Farzin brings a wealth of expertise in marketing and development to the table. His role involves crafting and executing growth strategies that align with the company’s mission.' },
+        { id: 3, image: pic3, name: 'Hosein Fatholahi', job: 'CTO (Chief Technology Officer)', education: 'Education', detail: 'As the CTO, Hosein Fatholahi is responsible for overseeing the company’s technological direction. His innovative approach ensures that the business remains at the forefront of technological advancements.' },
+        { id: 4, image: pic4, name: 'Nilofar Zargar', job: 'Art Specialist', education: 'Education', detail: 'Nilofar Zargar combines creativity with a deep understanding of art therapy. She plays a pivotal role in integrating art-based approaches into the company’s initiatives, enhancing team wellness and innovation.' },
 
         { image: pic5, name: 'Zahra Hasani', job: 'Developer', education: 'Education', detail: `Zahra Hasani is the backbone of the development team. Her skills in coding and problem-solving help build and maintain the digital infrastructure essential for the company's success.` },
         // { image: pic6, name: 'Name', job: 'Job Position', education: 'Education', detail: 'Lorem ipsum dolor sit amet consectetur. Leo arcu non morbi hendrerit tristique turpis neque. Facilisi platea nec mauris semper nunc vitae. Adipiscing vestibulum a viverra eu fames. Amet dolor donec adipiscing tincidunt dictum ut gravida. Aliquam orci orci urna amet.' },
@@ -44,17 +44,17 @@ const About = () => {
                     <ProgressSection />
                     <section className="grid grid-cols-3 gap-28 my-5">
                         {dataArray.length !== 0 ? dataArray?.map((item, index) => (
-                            <>
-                                <div className="flex items-start gap-2 flex-col">
-                                    <Image src={item.image} alt="" className="w-full" />
-                                    <h3 className="text-2xl">{item.name}</h3>
-                                    <h4 className="text-xl font-semibold">{item.job}</h4>
-                                    <h5 className="text-lg">{item.education}</h5>
-                                    <p className="text-justify">
-                                        {item.detail}
-                                    </p>
-                                </div>
-                            </>
+
+                            <div key={item.id} className="flex items-start gap-2 flex-col">
+                                <Image src={item.image} alt="" className="w-full" />
+                                <h3 className="text-2xl">{item.name}</h3>
+                                <h4 className="text-xl font-semibold">{item.job}</h4>
+                                <h5 className="text-lg">{item.education}</h5>
+                                <p className="text-justify">
+                                    {item.detail}
+                                </p>
+                            </div>
+
                         ))
                             :
                             <div>There is no any data here...</div>

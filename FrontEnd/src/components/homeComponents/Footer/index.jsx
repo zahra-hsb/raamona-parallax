@@ -38,10 +38,8 @@ const Footer = ({ isShow }) => {
                                 </div>
                             </form>
                             <div className="flex gap-2 w-full items-center justify-center py-2">
-                                {social.map(item => (
-                                    <>
-                                        <Image src={item} alt="" />
-                                    </>
+                                {social.map((item, index) => (
+                                    <Image key={index} src={item} alt="" />
                                 ))}
                             </div>
                         </section>

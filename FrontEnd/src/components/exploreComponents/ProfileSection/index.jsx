@@ -16,11 +16,9 @@ const ProfileSection = ({ item }) => {
                 </div>
                 <div className="flex gap-5">
                     {item.images.slice(0, 3).map(item => (
-                        <>
-                            <span className="rounded-xl overflow-hidden">
-                                <Image src={item} alt="" />
-                            </span>
-                        </>
+                        <span key={item.id} className="rounded-xl overflow-hidden">
+                            <Image src={item} alt="" />
+                        </span>
                     ))}
                 </div>
             </CardContainer>

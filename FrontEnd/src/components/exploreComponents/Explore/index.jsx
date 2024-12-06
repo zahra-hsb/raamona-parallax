@@ -10,53 +10,53 @@ import PictureContainer from "../PictureContainer"
 
 const Explore = () => {
     const dataArray = [
-        { profileName: 'Profile name', category: 'Category', detail: 'Lorem ipsum dolor sit amet consectetur. Egestas posuere.', imagesCount: 310, avatar: avatar, images: [pic1, pic2, pic3, pic1] },
-        { profileName: 'Profile name', category: 'Category', detail: 'Lorem ipsum dolor sit amet consectetur. Egestas posuere.', imagesCount: 310, avatar: avatar, images: [pic1, pic2, pic3] },
-        { profileName: 'Profile name', category: 'Category', detail: 'Lorem ipsum dolor sit amet consectetur. Egestas posuere.', imagesCount: 310, avatar: avatar, images: [pic1, pic2, pic3] },
-        { profileName: 'Profile name', category: 'Category', detail: 'Lorem ipsum dolor sit amet consectetur. Egestas posuere.', imagesCount: 310, avatar: avatar, images: [pic1, pic2, pic3] },
-        { profileName: 'Profile name', category: 'Category', detail: 'Lorem ipsum dolor sit amet consectetur. Egestas posuere.', imagesCount: 310, avatar: avatar, images: [pic1, pic2, pic3] },
-        { profileName: 'Profile name', category: 'Category', detail: 'Lorem ipsum dolor sit amet consectetur. Egestas posuere.', imagesCount: 310, avatar: avatar, images: [pic1, pic2, pic3, pic1] },
+        { id: 1, profileName: 'Profile name', category: 'Category', detail: 'Lorem ipsum dolor sit amet consectetur. Egestas posuere.', imagesCount: 310, avatar: avatar, images: [pic1, pic2, pic3, pic1] },
+        { id: 2, profileName: 'Profile name', category: 'Category', detail: 'Lorem ipsum dolor sit amet consectetur. Egestas posuere.', imagesCount: 310, avatar: avatar, images: [pic1, pic2, pic3] },
+        { id: 3, profileName: 'Profile name', category: 'Category', detail: 'Lorem ipsum dolor sit amet consectetur. Egestas posuere.', imagesCount: 310, avatar: avatar, images: [pic1, pic2, pic3] },
+        { id: 4, profileName: 'Profile name', category: 'Category', detail: 'Lorem ipsum dolor sit amet consectetur. Egestas posuere.', imagesCount: 310, avatar: avatar, images: [pic1, pic2, pic3] },
+        { id: 5, profileName: 'Profile name', category: 'Category', detail: 'Lorem ipsum dolor sit amet consectetur. Egestas posuere.', imagesCount: 310, avatar: avatar, images: [pic1, pic2, pic3] },
+        { id: 6, profileName: 'Profile name', category: 'Category', detail: 'Lorem ipsum dolor sit amet consectetur. Egestas posuere.', imagesCount: 310, avatar: avatar, images: [pic1, pic2, pic3, pic1] },
     ]
 
     const picturesArray = [
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
-        { avatar: avatar, username: 'username', pic: pic2 },
+        { id: 1, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 2, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 3, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 4, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 5, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 6, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 7, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 8, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 9, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 10, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 11, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 12, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 13, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 14, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 15, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 16, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 17, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 18, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 19, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 20, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 21, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 22, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 23, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 24, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 25, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 26, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 27, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 28, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 29, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 30, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 31, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 32, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 33, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 34, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 35, avatar: avatar, username: 'username', pic: pic2 },
+        { id: 36, avatar: avatar, username: 'username', pic: pic2 },
     ]
-    
+
     return (
         <>
             <section className="flex flex-col px-24 py-5">
@@ -67,9 +67,7 @@ const Explore = () => {
                 <div>
                     <div className="my-5 flex flex-col gap-5">
                         {dataArray.length !== 0 ? dataArray?.slice(0, 5).map((item, index) => (
-                            <>
-                                <ProfileSection item={item} />
-                            </>
+                            <ProfileSection key={item.id} item={item} />
                         ))
                             :
                             <div className="p-10">There is no any data...</div>
@@ -77,9 +75,7 @@ const Explore = () => {
                     </div>
                     <div className="grid grid-cols-4 gap-10">
                         {picturesArray.length !== 0 ? picturesArray?.slice(0, 32).map(item => (
-                            <>
-                                <PictureContainer item={item} />
-                            </>
+                            <PictureContainer item={item} key={item.id} />
                         ))
                             :
                             <div>There is no any picture...</div>
@@ -87,9 +83,7 @@ const Explore = () => {
                     </div>
                     <div className="my-5 flex flex-col gap-5">
                         {dataArray.length !== 0 ? dataArray?.slice(0, 5).map((item, index) => (
-                            <>
-                                <ProfileSection item={item} />
-                            </>
+                            <ProfileSection key={item.id} item={item} />
                         ))
                             :
                             <div className="p-10">There is no any data...</div>
@@ -97,9 +91,7 @@ const Explore = () => {
                     </div>
                     <div className="grid grid-cols-4 gap-10">
                         {picturesArray.length !== 0 ? picturesArray?.slice(0, 32).map(item => (
-                            <>
-                                <PictureContainer item={item} />
-                            </>
+                            <PictureContainer item={item} key={item.id} />
                         ))
                             :
                             <div>There is no any picture...</div>
