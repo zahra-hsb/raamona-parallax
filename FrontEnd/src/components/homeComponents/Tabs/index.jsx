@@ -54,8 +54,8 @@ const Tabs = () => {
     return (
         <>
             <section className="w-full">
-                <div className="w-full flex gap-14 justify-center items-center">
-                    <div className="flex gap-5 px-5">
+                <div className="w-full flex gap-14 justify-center items-center py-2">
+                    <div className="absolute left-0 flex gap-5 px-5">
                         <div className="py-2">
                             <p className="text-gray-400 text-sm">Sort</p>
                             <select className="bg-gray-200 cursor-pointer px-3 py-1 rounded">
