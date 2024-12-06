@@ -15,7 +15,10 @@ import LoginHeader from "@/components/globalComponents/LoginHeader"
 import SocialLogin from "@/components/globalComponents/SocialLogin"
 import LoginBg from "@/components/globalComponents/LoginBg"
 
-const options = ['accordion option', 'accordion option', 'accordion option', 'accordion option']
+const userRole = [
+    { id: 0, title: 'author' }
+]
+// const options = ['accordion option', 'accordion option', 'accordion option', 'accordion option']
 const Signup = () => {
     const [values, setValues] = useState({
         firstName: '',
@@ -25,7 +28,7 @@ const Signup = () => {
         confirmPassword: '',
         email: '',
         phone: '',
-        option: ''
+        userRole: ''
     })
     const [isShowOption, setShowOptions] = useState(false)
 
@@ -148,19 +151,19 @@ const Signup = () => {
                             />
 
                             <select onClick={handleShowOptions} className="border outline-none border-gray-500 px-5 py-2 rounded-lg shadow-lg my-5 cursor-pointer text-blue font-bold flex justify-between items-center relative"
-                                value={values.option}
+                                value={values.userRole}
                                 onChange={handleChangeValues}
-                                name={'option'}
+                                name={'userRole'}
 
                             >
                                 <option>
                                     CHOOSE AN OPTION
                                 </option>
                                 {/* <ul className={`absolute rounded-lg bottom-12 overflow-hidden w-full left-0 shadow-lg transition-all text-start duration-300 ease-out ${isShowOption ? 'opacity-100' : 'opacity-0'}`}> */}
-                                {options.map((item, index) =>
+                                {userRole.map((item) =>
                                     <option
                                         className="w-full text-gray-400 font-medium bg-gray-100 px-5 py-2 hover:bg-gray-300 transition-all text-start duration-300 ease-out"
-                                        key={index}>{item}</option>
+                                        key={item.id} value={item.title}>{item.title}</option>
                                 )}
                                 {/* </ul> */}
                             </select>
