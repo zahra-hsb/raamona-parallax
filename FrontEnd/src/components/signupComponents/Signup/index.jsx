@@ -10,7 +10,7 @@ import phone from '../../../../public/icons/phone_duotone_line.svg'
 import Button from "@/components/globalComponents/Button"
 import Link from "next/link"
 import arrow from '../../../../public/icons/Arrow_drop_down.svg'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import LoginHeader from "@/components/globalComponents/LoginHeader"
 import SocialLogin from "@/components/globalComponents/SocialLogin"
 import LoginBg from "@/components/globalComponents/LoginBg"
@@ -30,6 +30,12 @@ const Signup = () => {
         phone: '',
         userRole: ''
     })
+    const [isValidForm, setValidForm] = useState(false)
+
+    const [error, setError] = useState({
+        message: '',
+        color: ''
+    })
     const [isShowOption, setShowOptions] = useState(false)
 
 
@@ -41,6 +47,15 @@ const Signup = () => {
     }
     function handleShowOptions() {
         setShowOptions(!isShowOption)
+    }
+    function handlePasswordValidation() {
+        if (values.password !== values.confirmPassword) {
+            setError({ message: 'با رمز عبور وارد شده مطابقت ندارد.', color: '#ff0000' })
+        } else if (values.password.length < 8 || values.cPassword.length < 8) {
+            setError({ message: 'تعداد کاراکترهای وارد شده باید 8 کاراکتر باشد.', color: '#ff0000' })
+        } else {
+            setError({ message: '', color: '' })
+        }
     }
     async function handleSubmit(e) {
         e.preventDefault()
@@ -55,6 +70,23 @@ const Signup = () => {
             console.log('error=> ', error);
         }
     }
+
+    useEffect(() => {
+        const passwordsMatch = values.password === values.confirmPassword;
+        setValidForm(
+            values.email &&
+            values.tel &&
+            values.password &&
+            passwordsMatch &&
+            values.password.length >= 8 &&
+            values.confirmPassword.length >= 8 &&
+            values.firstName &&
+            values.lastName &&
+            values.phone &&
+            values.userRole &&
+            values.username
+        );
+    }, [values])
     return (
         <>
             <section className="flex">
@@ -114,6 +146,7 @@ const Signup = () => {
                                     />
                                     <Input
                                         value={values.confirmPassword}
+                                        onBlur={handlePasswordValidation}
                                         type={'password'}
                                         id={'confirmPassword'}
                                         name={'confirmPassword'}
@@ -168,7 +201,10 @@ const Signup = () => {
                                 {/* </ul> */}
                             </select>
                             <Image src={arrow} alt="" className="rotate-180 absolute z-30 hidden" />
-                            <Button type={'submit'} text={'Create Account'} />
+                            {error && <div className={`text-${error.color}`}>
+                                {error.message}
+                            </div>}
+                            <Button disabled={isValidForm ? false : true} type={'submit'} text={'Create Account'} />
 
                         </form>
                         <div className="py-2">
