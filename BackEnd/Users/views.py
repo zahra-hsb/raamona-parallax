@@ -148,7 +148,7 @@ class RegisterView(APIView):
                 'user': CustomUserSerializer(user).data,
                 'refresh': str(refresh),
                 'access': str(refresh.access_token),
-            }, status=status.HTTP_201_CREATED)
+            }, status=status.HTTP_201_CREATED , content_type='application/json')
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
