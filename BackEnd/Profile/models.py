@@ -61,13 +61,13 @@ class Follow(models.Model):
     def __str__(self):
         return f"{self.follower.username} -> {self.following.username} ({'Accepted' if self.is_accepted else 'Pending'})"
 
-# Favorite Users
-class FavoriteUser(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="favorite_users")
-    favorite = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="favorited_by")
+# # Favorite Users
+# class FavoriteUser(models.Model):
+#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="favorite_users")
+#     favorite = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="favorited_by")
 
-    class Meta:
-        unique_together = ('user', 'favorite')
+#     class Meta:
+#         unique_together = ('user', 'favorite')
 
-    def __str__(self):
-        return f"{self.user.username} favorited {self.favorite.username}"
+#     def __str__(self):
+#         return f"{self.user.username} favorited {self.favorite.username}"
