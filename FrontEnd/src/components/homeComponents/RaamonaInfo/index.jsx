@@ -23,7 +23,6 @@ const RaamonaInfo = () => {
     return (
         <>
             <section className="py-8 px-20 overflow-hidden">
-                {scroll} {show}
                 <div className={`${show ? `translate-y-0` : `translate-y-52`} transition-all duration-1000`}>
                     <h3 className="text-5xl font-extrabold`">How Does Work Raamona?</h3>
                     <p className="text-justify">
