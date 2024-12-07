@@ -4,20 +4,25 @@ from rest_framework.generics import RetrieveUpdateAPIView, ListAPIView, CreateAP
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import status
-from .models import UserProfile, GeneratedImage, Follow, FavoriteUser
+from .models import UserProfile, GeneratedImage, Follow
 from .serializers import (
     UserProfileSerializer, 
     GeneratedImageSerializer, 
     GeneratedImageUploadSerializer,
     FollowSerializer,
     FollowRequestSerializer,
-    FavoriteUserSerializer
+    UserProfileSerializer,
+    # FavoriteUserSerializer
 )
 from django.contrib.auth import get_user_model
+from Users.models import CustomUser
+from rest_framework.permissions import IsAdminUser
+
+
 
 User = get_user_model()
 
-# --- پروفایل کاربر ---
+
 class UserProfileView(RetrieveUpdateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = UserProfileSerializer
@@ -33,7 +38,18 @@ class UserProfileView(RetrieveUpdateAPIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# --- مدیریت تصاویر تولیدی ---
+
+
+class AllProfilesView(APIView):
+    permission_classes = [IsAdminUser] 
+
+    def get(self, request):
+        profiles = UserProfile.objects.all()
+        serializer = UserProfileSerializer(profiles, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+
+    
 class GeneratedImageListView(ListAPIView):
     permission_classes = [AllowAny]
     serializer_class = GeneratedImageSerializer
@@ -56,7 +72,7 @@ class GeneratedImageUploadView(CreateAPIView):
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
-# --- مدیریت فالو و درخواست‌ها ---
+
 class FollowRequestView(ListAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = FollowRequestSerializer
@@ -113,22 +129,23 @@ class UnfollowView(APIView):
         except Follow.DoesNotExist:
             return Response({'error': 'Follow relationship not found.'}, status=status.HTTP_404_NOT_FOUND)
 
-# --- مدیریت کاربران مورد علاقه ---
-class FavoriteUserView(APIView):
-    permission_classes = [IsAuthenticated]
 
-    def post(self, request, user_id):
-        try:
-            favorite_user = User.objects.get(id=user_id)
-            FavoriteUser.objects.get_or_create(user=request.user, favorite=favorite_user)
-            return Response({'detail': 'User added to favorites.'}, status=status.HTTP_200_OK)
-        except User.DoesNotExist:
-            return Response({'error': 'User not found.'}, status=status.HTTP_404_NOT_FOUND)
+# class FavoriteUserView(APIView):
+#     permission_classes = [IsAuthenticated]
 
-    def delete(self, request, user_id):
-        try:
-            favorite = FavoriteUser.objects.get(user=request.user, favorite__id=user_id)
-            favorite.delete()
-            return Response({'detail': 'User removed from favorites.'}, status=status.HTTP_200_OK)
-        except FavoriteUser.DoesNotExist:
-            return Response({'error': 'Favorite user not found.'}, status=status.HTTP_404_NOT_FOUND)
+#     def post(self, request, user_id):
+#         try:
+#             favorite_user = User.objects.get(id=user_id)
+#             FavoriteUser.objects.get_or_create(user=request.user, favorite=favorite_user)
+#             return Response({'detail': 'User added to favorites.'}, status=status.HTTP_200_OK)
+#         except User.DoesNotExist:
+#             return Response({'error': 'User not found.'}, status=status.HTTP_404_NOT_FOUND)
+
+#     def delete(self, request, user_id):
+#         try:
+#             favorite = FavoriteUser.objects.get(user=request.user, favorite__id=user_id)
+#             favorite.delete()
+#             return Response({'detail': 'User removed from favorites.'}, status=status.HTTP_200_OK)
+#         except FavoriteUser.DoesNotExist:
+#             return Response({'error': 'Favorite user not found.'}, status=status.HTTP_404_NOT_FOUND)
+

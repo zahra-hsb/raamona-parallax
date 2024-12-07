@@ -1,6 +1,8 @@
 from rest_framework import serializers
-from .models import UserProfile, GeneratedImage, Follow, FavoriteUser
+from .models import UserProfile, GeneratedImage, Follow
 from django.contrib.auth import get_user_model
+from Users.models import CustomUser
+
 
 User = get_user_model()
 
@@ -48,8 +50,20 @@ class FollowRequestSerializer(serializers.ModelSerializer):
         fields = ['id', 'follower', 'following', 'is_accepted']
         read_only_fields = ['follower', 'following']
 
-class FavoriteUserSerializer(serializers.ModelSerializer):
+# class FavoriteUserSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = FavoriteUser
+#         fields = ['user', 'favorite']
+#         read_only_fields = ['user']
+
+
+class UserListSerializer(serializers.ModelSerializer):
+    full_name = serializers.SerializerMethodField()
+    profile_picture = serializers.ImageField(source='profile.profile_picture', read_only=True)
+
     class Meta:
-        model = FavoriteUser
-        fields = ['user', 'favorite']
-        read_only_fields = ['user']
+        model = CustomUser
+        fields = ['id', 'username', 'email', 'full_name', 'profile_picture']
+
+    def get_full_name(self, obj):
+        return f"{obj.first_name} {obj.last_name}".strip()
