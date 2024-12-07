@@ -1,7 +1,7 @@
 
 from django.contrib import admin
 from django.urls import path, include
-from Users.views import RegisterView, LoginView, LogoutView, PasswordResetView, PasswordResetConfirmView ,RegisterView, LoginView, LogoutView, GoogleLogin
+from Users.views import RegisterView, UserListView, LoginView, LogoutView, PasswordResetView, PasswordResetConfirmView ,RegisterView, LoginView, LogoutView, GoogleLogin
 from rest_framework_simplejwt.views import TokenRefreshView
 
 urlpatterns = [
@@ -15,6 +15,7 @@ urlpatterns = [
     # path('auth/social/', include('allauth.urls')),
     # path('auth/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('register/', RegisterView.as_view(), name='register'),
+    path('users/', UserListView.as_view(), name='user-list'),  
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),

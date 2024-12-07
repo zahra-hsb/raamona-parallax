@@ -128,6 +128,9 @@ from .serializers import CustomUserSerializer, LoginSerializer, TokenSerializer
 from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
 from dj_rest_auth.registration.views import SocialLoginView
 from .serializers import PasswordResetSerializer, PasswordResetConfirmSerializer
+from rest_framework.permissions import IsAdminUser
+from .models import CustomUser
+from .serializers import CustomUserSerializer
 
 
 User = get_user_model()
@@ -147,6 +150,17 @@ class RegisterView(APIView):
                 'access': str(refresh.access_token),
             }, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class UserListView(APIView):
+    permission_classes = [IsAdminUser] 
+
+    def get(self, request):
+        users = CustomUser.objects.all()
+        serializer = CustomUserSerializer(users, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+
 
 class LoginView(APIView):
     permission_classes = [AllowAny]
