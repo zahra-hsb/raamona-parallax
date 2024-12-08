@@ -14,24 +14,28 @@ import { useEffect, useState } from "react"
 import LoginHeader from "@/components/globalComponents/LoginHeader"
 import SocialLogin from "@/components/globalComponents/SocialLogin"
 import LoginBg from "@/components/globalComponents/LoginBg"
+import { useRouter } from "next/navigation"
 
 const userRole = [
-    { id: 0, title: 'author' }
+    { id: 0, title: 'Psychologist' },
+    { id: 1, title: 'Artist' },
+    { id: 2, title: 'Art therapist' },
+    { id: 3, title: 'Other' },
 ]
 // const options = ['accordion option', 'accordion option', 'accordion option', 'accordion option']
 const Signup = () => {
     const [values, setValues] = useState({
-        firstName: '',
-        lastName: '',
+        first_name: '',
+        last_name: '',
         username: '',
-        password: '',
-        confirmPassword: '',
         email: '',
-        phone: '',
-        userRole: ''
+        password: '',
+        password_repeat: '',
+        phone_number: '',
+        role: '',
     })
     const [isValidForm, setValidForm] = useState(false)
-
+    const router = useRouter()
     const [error, setError] = useState({
         message: '',
         color: ''
@@ -49,9 +53,9 @@ const Signup = () => {
         setShowOptions(!isShowOption)
     }
     function handlePasswordValidation() {
-        if (values.password !== values.confirmPassword) {
+        if (values.password !== values.password_repeat) {
             setError({ message: 'the password is not correct!', color: '#ff0000' })
-        } else if (values.password.length < 8 || values.confirmPassword.length < 8) {
+        } else if (values.password.length < 8 || values.password_repeat.length < 8) {
             setError({ message: 'the password must be greater than 8 characters!', color: '#ff0000' })
         } else {
             setError({ message: '', color: '' })
@@ -63,25 +67,53 @@ const Signup = () => {
             const response = await fetch(`/api/register`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: values
+                body: JSON.stringify(values)
             })
-            console.log('res: ', await response.json());
+            const data = await response.json()
+            if (!response.ok) {
+                setError({ message: data.error, color: '#ff0000' })
+                setTimeout(() => {
+                    setError({
+                        message: '',
+                        color: ''
+                    })
+                }, 5000)
+            } else if(data.isExistUser) {
+                setError({ message: data.error + 'plaese login', color: '#ff0000' })
+                setTimeout(() => {
+                    setError({
+                        message: '',
+                        color: ''
+                    })
+                    router.push('/signin')
+                }, 5000)
+            } else {
+                setError({ message: data.message, color: '#00ff00' })
+                setTimeout(() => {
+                    setError({
+                        message: '',
+                        color: ''
+                    })
+                    router.push('/signin/userprofile')
+                }, 5000)
+            }
+            console.log('res: ', data);
         } catch (error) {
             console.log('error=> ', error);
         }
     }
 
     useEffect(() => {
-        const passwordsMatch = values.password === values.confirmPassword;
+        const passwordsMatch = values.password === values.password_repeat;
         setValidForm(
-            values.firstName &&
-            values.lastName &&
+            values.first_name &&
+            values.last_name &&
             values.username &&
             values.password &&
-            values.confirmPassword.length >= 8 &&
+            values.password_repeat.length >= 8 &&
             values.email &&
-            values.phone &&
-            values.userRole &&
+            values.phone_number &&
+            values.role &&
             passwordsMatch &&
             values.password.length >= 8
         );
@@ -97,9 +129,9 @@ const Signup = () => {
                         <form onSubmit={handleSubmit} className="flex flex-col gap-2">
                             <div className="flex gap-2 justify-between items-center">
                                 <Input
-                                    id={'firstName'}
-                                    value={values.firstName}
-                                    name={'firstName'}
+                                    id={'first_name'}
+                                    value={values.first_name}
+                                    name={'first_name'}
                                     label={'FIRST NAME*'}
                                     maxLength={20}
                                     placeholder={'Enter first name'}
@@ -108,9 +140,9 @@ const Signup = () => {
                                     onChange={handleChangeValues}
                                 />
                                 <Input
-                                    value={values.lastName}
-                                    id={'lastName'}
-                                    name={'lastName'}
+                                    value={values.last_name}
+                                    id={'last_name'}
+                                    name={'last_name'}
                                     label={'LAST NAME*'}
                                     onChange={handleChangeValues}
                                     maxLength={20}
@@ -144,11 +176,11 @@ const Signup = () => {
                                         icon={password}
                                     />
                                     <Input
-                                        value={values.confirmPassword}
+                                        value={values.password_repeat}
                                         onBlur={handlePasswordValidation}
                                         type={'password'}
-                                        id={'confirmPassword'}
-                                        name={'confirmPassword'}
+                                        id={'password_repeat'}
+                                        name={'password_repeat'}
                                         onChange={handleChangeValues}
                                         maxLength={20}
                                         placeholder={'Confirm your password'}
@@ -170,9 +202,9 @@ const Signup = () => {
                                 icon={email}
                             />
                             <Input
-                                id={'phone'}
-                                name={'phone'}
-                                value={values.phone}
+                                id={'phone_number'}
+                                name={'phone_number'}
+                                value={values.phone_number}
                                 label={'PHONE NUMBER*'}
                                 maxLength={20}
                                 placeholder={'+1'}
@@ -183,9 +215,9 @@ const Signup = () => {
                             />
 
                             <select onClick={handleShowOptions} className="border outline-none border-gray-500 px-5 py-2 rounded-lg shadow-lg my-5 cursor-pointer text-blue font-bold flex justify-between items-center relative"
-                                value={values.userRole}
+                                value={values.role}
                                 onChange={handleChangeValues}
-                                name={'userRole'}
+                                name={'role'}
 
                             >
                                 <option>
