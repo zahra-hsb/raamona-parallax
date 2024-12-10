@@ -12,10 +12,12 @@ import VerificationCode from "../VerificationCode"
 
 const ForgotPassword = () => {
     const [isShowVerificationCode, setShowVerificationCode] = useState(false)
-    const [email, setEmail] = useState('')
-    const [verCode, setVerCode] = useState('')
-    const [password, setPassword] = useState('')
-    const [cPassword, setCPassword] = useState('')
+    const [values, setValues] = useState({
+        email: '',
+        code: '',
+        password: '',
+        confirmPassword: ''
+    })
     const router = useRouter()
 
     function handleShowVerrificationCode(e) {
@@ -26,21 +28,15 @@ const ForgotPassword = () => {
     function handleShowEmail() {
         setShowVerificationCode(false)
     }
-    function handleChangeEmail(e) {
-        setEmail(e.target.value)
-    }
-    function handleChangeVerCode(e) {
-        setVerCode(e.target.value)
-    }
-    function handleChangePass(e) {
-        setPassword(e.target.value)
-    }
-    function handleChangeCPass(e) {
-        setCPassword(e.target.value)
+    function handleChangeValues(e) {
+        setValues({
+            ...values,
+            [e.target.name]: e.target.value
+        })
     }
     function handleChangeAccountPass(e) {
         e.preventDefault()
-        router.push('/signin')
+        // router.push('/signin')
     }
     return (
         <>
@@ -51,21 +47,19 @@ const ForgotPassword = () => {
                         {'We will send on email with verification code if you don’t see it, please check your spam folder.'}
                     </p>
                     <VerificationEmail
-                        email={email}
-                        handleChangeEmail={handleChangeEmail}
+                        email={values.email}
+                        handleChangeEmail={handleChangeValues}
                         isShowVerificationCode={isShowVerificationCode}
                     />
 
                     <VerificationCode
                         verification={verification}
-                        verCode={verCode} 
+                        verCode={values.code} 
                         passwordIcon={passwordIcon}
-                        password={password} 
+                        password={values.password} 
                         isShowVerificationCode={isShowVerificationCode}
-                        handleChangeVerCode={handleChangeVerCode}
-                        handleChangePass={handleChangePass}
-                        handleChangeCPass={handleChangeCPass}
-                        cPassword={cPassword}
+                        handleChangeValues={handleChangeValues}
+                        cPassword={values.confirmPassword}
                     />
 
                     <Button text={
