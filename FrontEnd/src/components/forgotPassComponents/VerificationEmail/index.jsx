@@ -7,7 +7,7 @@ const VerificationEmail = ({ isShowVerificationCode, handleChangeEmail, email })
             {!isShowVerificationCode &&
                 <Input value={email} onChange={(e) => handleChangeEmail(e)}
                     type={'email'} style={'border-2 border-gary-500'} width={'w-full'} icon={emailIcon}
-                    placeholder={'you@yourmail.com'} id={'email'} />
+                    placeholder={'you@yourmail.com'} name={'email'} id={'email'} />
             }
         </>
     )
