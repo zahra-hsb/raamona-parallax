@@ -96,7 +96,9 @@ class LoginSerializer(serializers.Serializer):
         if not username and not email:
             raise serializers.ValidationError("Either username or email is required.")
 
-        user = authenticate(username=username, password=password) or authenticate(email=email, password=password)
+        identifier = username if username else email
+
+        user = authenticate(username=identifier, password=password)
         if not user:
             raise serializers.ValidationError("Invalid credentials.")
 

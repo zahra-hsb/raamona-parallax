@@ -76,6 +76,7 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.facebook.FacebookOAuth2',
     'social_core.backends.microsoft.MicrosoftOAuth2',
     'social_core.backends.apple.AppleIdAuth',
+    'Users.authentication_backends.EmailOrUsernameBackend',
 )
 
 from datetime import timedelta
