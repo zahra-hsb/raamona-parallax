@@ -4,7 +4,7 @@ export async function POST(req) {
   try {
     const data = await req.json();
 
-    const res = await fetch(`http://127.0.0.1:8000/api/Users/register/`, {
+    const res = await fetch(`${process.env.API_URL}/api/Users/register/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -40,7 +40,7 @@ export async function POST(req) {
   } catch (error) {
     console.error("Error during registration:", error);
     if (error.message.includes('Network')) {
-      return NextResponse.json({ error: "Network error. Please check your connection." }, { status: 503 }); // Handle network errors  
+      return NextResponse.json({ error: "Network error. Please check your connection." }, { status: 503 }); 
     }
     return NextResponse.json({ error: "An unexpected error occurred" }, { status: 500 });
   }
