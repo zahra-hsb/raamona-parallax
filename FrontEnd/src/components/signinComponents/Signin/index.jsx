@@ -27,12 +27,21 @@ const Signin = () => {
         color: ''
     })
 
-    function handleChangeValues(e) {
-        setValues({
-            ...values,
-            [e.target.name]: e.target.value
-        })
-    }
+    function handleChangeValues(e) {  
+        const { name, value } = e.target;  
+        let newValue = value;  
+    
+        if (name === 'email') {  
+            // Simple email validation (improve this for production)  
+            if (value.includes('@') && value.includes('.')) {  
+                newValue = value; //Treat as email  
+            } else {  
+                newValue = value; // Treat as username if not a valid email format  
+            }  
+        }  
+    
+        setValues({ ...values, [name]: newValue });  
+    }  
 
     async function handleLogin(e) {
         e.preventDefault()
@@ -40,10 +49,10 @@ const Signin = () => {
             const response = await fetch(`/api/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: values
+                body: JSON.stringify(values)
             })
             console.log('res: ', await response.json());
-            router.push('/signin/userprofile')
+            // router.push('/signin/userprofile')
         } catch (error) {
             console.log('error=> ', error);
         }
@@ -51,7 +60,7 @@ const Signin = () => {
 
     useEffect(() => {
         setValidForm(
-            values.emailUser &&
+            values.email &&
             values.password &&
             values.password.length >= 8
         );
@@ -72,7 +81,7 @@ const Signin = () => {
                                     <Input
                                         type={'text'}
                                         id={'emailUser'}
-                                        name={'emailUser'}
+                                        name={'email'}
                                         label={'Email or Username'}
                                         maxLength={20}
                                         placeholder={'Enter a Email / Username'}
