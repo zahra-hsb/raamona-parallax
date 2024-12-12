@@ -7,28 +7,28 @@ import apple from '../../../../public/icons/Apple.svg'
 const SocialLogin = () => {
     function handleGoogleLogin() {
         try {
-            // fetch(`${process.env.API_URL}/api/users/auth/google`)
+            // fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/auth/google`)
         } catch (error) {
             console.error(error)
         }
     }
     function handleFacebookLogin() {
         try {
-            // fetch(`${process.env.API_URL}/api/users/login`)
+            // fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/login`)
         } catch (error) {
             console.error(error)
         }
     }
     function handleMicrosoftLogin() {
         try {
-            // fetch(`${process.env.API_URL}/api/users/login`)
+            // fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/login`)
         } catch (error) {
             console.error(error)
         }
     }
     function handleAppleLogin() {
         try {
-            // fetch(`${process.env.API_URL}/api/users/login`)
+            // fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/login`)
         } catch (error) {
             console.error(error)
         }

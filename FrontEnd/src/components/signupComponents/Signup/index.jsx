@@ -17,10 +17,10 @@ import LoginBg from "@/components/globalComponents/LoginBg"
 import { useRouter } from "next/navigation"
 
 const userRole = [
-    { id: 0, title: 'Psychologist' },
-    { id: 1, title: 'Artist' },
-    { id: 2, title: 'Art therapist' },
-    { id: 3, title: 'Other' },
+    { id: 0, title: 'psychologist' },
+    { id: 1, title: 'artist' },
+    { id: 2, title: 'art therapist' },
+    { id: 3, title: 'other' },
 ]
 // const options = ['accordion option', 'accordion option', 'accordion option', 'accordion option']
 const Signup = () => {

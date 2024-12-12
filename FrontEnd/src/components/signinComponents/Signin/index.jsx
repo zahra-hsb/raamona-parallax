@@ -51,7 +51,8 @@ const Signin = () => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(values)
             })
-            console.log('res: ', await response.json());
+            const result = await response.json()
+            console.log('res: ', result);
             // router.push('/signin/userprofile')
         } catch (error) {
             console.log('error=> ', error);

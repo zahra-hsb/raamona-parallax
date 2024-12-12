@@ -34,8 +34,14 @@ const ForgotPassword = () => {
             [e.target.name]: e.target.value
         })
     }
-    function handleChangeAccountPass(e) {
+    async function handleChangeAccountPass(e) {
         e.preventDefault()
+        try {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/resetPass`)
+            console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
         // router.push('/signin')
     }
     return (
