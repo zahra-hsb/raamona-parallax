@@ -8,6 +8,7 @@ import initialBg from '../../../../public/images/mobileParallax/Home-Mobile.png'
 import mountain from '../../../../public/images/parallax/Group 20.png'
 import earth from '../../../../public/images/mobileParallax/Front.png'
 import sky from '../../../../public/images/mobileParallax/Home-2-Mobile.png'
+import sun from '../../../../public/images/mobileParallax/Sun.svg'
 import { useEffect, useRef, useState } from "react"
 import gsap from "gsap"
 import ScrollTrigger from "gsap/dist/ScrollTrigger"
@@ -75,14 +76,15 @@ const MobileMain = () => {
             <section ref={parallaxRef} className="w-full relative bg-gradient-to-b from-[#474afe] to-[#a4f1de] overflow-hidden h-screen">
 
                 <h3 ref={raamona} className={` ${isLoad ? '-translate-x-80 ' : 'translate-x-0 z-50 '} text-[30pt] z-30 transition-all duration-1000 paris text-blue font-extrabold absolute top-36 left-96 opacity-100`}>Raamona</h3>
+                <Image src={sun} className={` ${isLoad ? '-translate-x-28' : '-translate-x-52 z-50 '} text-[30pt] z-20 transition-all duration-1000 paris text-blue font-extrabold absolute top-36 left-96 opacity-100`} alt="" />
 
-                <div className="relative">
+                <div className={`relative ${isLoad ? 'flex' : 'hidden'}`}>
                     <button onClick={() => router.push('/signin')} className="rounded-full shadow-top absolute top-72 right-20 backdrop-blur-lg z-50 p-2 py-5 text-center flex flex-col items-center gap-2 text-blue">
                         <Image src={start} alt="" />
                         GET START
                     </button>
                 </div>
-                <div className="w-full flex relative">
+                <div className={`w-full ${isLoad ? 'flex' : 'hidden'} relative`}>
                     <input type="text" className="w-1/2 p-2 rounded-md border border-gray-500 shadow-lg backdrop-blur-lg placeholder:text-gray-500 top-[500px] bg-transparent left-[20%] !z-50 absolute hover:bg-slate-400  hover:placeholder:scale-110 hover:placeholder:translate-x-4 transition-all duration-700" placeholder="Search Username..." />
                     <Button
                         text={
@@ -94,9 +96,9 @@ const MobileMain = () => {
                 </div>
                 <div>
                     {/* scroll */}
-                    <Image ref={skyRef} className={`${isLoad ? 'translate-x-100 translate-y-100' : '-translate-x-full -translate-y-full'} opacity-${background} absolute h-screen w-full left-0 top-0 z-0 scale-105 transition-all duration-700 ease-out`} src={sky} alt="" />
+                    <Image ref={skyRef} className={`${isLoad ? 'scale-100 translate-y-0' : 'scale-110 -translate-y-[10%]'} opacity-${background} absolute h-screen w-full left-0 top-0 z-0 scale-105 transition-all duration-700 ease-out`} src={sky} alt="" />
                     {/* <Image className={`${isLoad ? 'opacity-100 translate-y-72' : 'opacity-0 translate-y-52'} transition-all duration-700 ease-out absolute left-0 bottom-0 w-full scale-125 z-20 `} src={earth} alt="" /> */}
-                    <Image className={`${!isLoad ? `absolute z-50 top-0 right-0 opacity-100` : 'opacity-0'} transition-all duration-500 z-40 -translate-y-52 w-full`} src={initialBg} alt="" />
+                    <Image className={`${!isLoad ? ` opacity-100` : 'opacity-0'} transition-all duration-500 fixed z-50 top-0 right-0 w-full h-screen`} src={initialBg} alt="" />
 
                 </div>
             </section>

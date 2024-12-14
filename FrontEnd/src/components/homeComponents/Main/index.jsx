@@ -73,13 +73,13 @@ const Main = () => {
             <Header isShowPlayBtn={true} isLoggedIn={true} style={` ${isLoad ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'} absolute z-50 w-[90%] transition-all duration-1000`} />
             <section ref={parallaxRef} className="w-full relative bg-gradient-to-b from-[#474afe] to-[#a4f1de] overflow-hidden h-screen">
                 <h3 ref={raamona} className={` ${isLoad ? '-translate-x-10 -translate-y-10 text-[60pt]' : 'translate-x-96 translate-y-28 text-[90pt] z-50 '} z-30 transition-all duration-1000 paris text-blue font-extrabold absolute top-36 left-96 opacity-100`}>Raamona</h3>
-                <div className="relative">
+                <div className={`relative`}>
                     <button onClick={() => router.push('/signin')} className="rounded-full shadow-top absolute top-52 right-72 backdrop-blur-lg z-50 p-5 py-8 text-center flex flex-col items-center gap-2 text-blue">
                         <Image src={start} alt="" />
                         GET START
                     </button>
                 </div>
-                <div className="w-full flex relative">
+                <div className={`w-full relative`}>
                     <input type="text" className="w-80 p-2 rounded-md border border-gray-500 shadow-md backdrop-blur-lg placeholder:text-gray-500 top-96 bg-transparent left-[40%] z-50 absolute hover:bg-slate-400  hover:placeholder:scale-110 hover:placeholder:translate-x-4 transition-all duration-700" placeholder="Search Username..." />
                     <Button
                         text={
@@ -91,9 +91,9 @@ const Main = () => {
                 </div>
                 <div>
                     {/* scroll */}
-                    <Image ref={skyRef} className={`${isLoad ? 'translate-x-100 translate-y-100' : '-translate-x-full -translate-y-full'} opacity-${background} absolute h-screen w-full left-0 top-0 z-0 scale-105 transition-all duration-700 ease-out`} src={sky} alt="" />
-                    <Image className={`${isLoad ? 'opacity-100' : 'opacity-0'} transition-all duration-700 ease-out absolute left-0 bottom-0 w-full scale-125 z-30 `} src={earth} alt="" />
-                    <Image className={`${!isLoad ? `absolute z-50 top-0 right-0 opacity-100` : 'opacity-0'} transition-all duration-500 z-40 -translate-y-52 w-full`} src={initialBg} alt="" />
+                    <Image ref={skyRef} className={`${isLoad ? 'translate-x-100 translate-y-100' : '-translate-x-full -translate-y-full'} opacity-${background} absolute h-screen hidden sm:block w-full left-0 top-0 z-0 scale-105 transition-all duration-700 ease-out`} src={sky} alt="" />
+                    <Image className={`${isLoad ? 'opacity-100' : 'opacity-0'} transition-all duration-700 hidden sm:block ease-out absolute left-0 bottom-0 w-full scale-125 z-30 `} src={earth} alt="" />
+                    <Image className={`${!isLoad ? `absolute z-50 top-0 right-0 opacity-100` : 'opacity-0'} hidden sm:block transition-all duration-500 z-40 -translate-y-52 w-full`} src={initialBg} alt="" />
 
                 </div>
             </section>
