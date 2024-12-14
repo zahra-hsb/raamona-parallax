@@ -26,20 +26,23 @@ const RaamonaInfo = () => {
                 <div className={`${show ? `translate-y-0` : `translate-y-52`} transition-all duration-1000`}>
                     <h3 className="text-5xl font-extrabold`">How Does Work Raamona?</h3>
                     <p className="text-justify">
-                        aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst
+                        You will answer some art therapy questions. After the analysis, you can choose to receive a picture that helps you relax, or a black-and-white coloring book picture that allows you to use your creativity to continue drawing and create your own colorful world.
                     </p>
                 </div>
                 <InfoSection
                     imageMotion={`${show ? 'translate-x-0' : '-translate-x-52'} transition-all duration-1000`}
                     style={`${show ? 'translate-x-0' : 'translate-x-52'} transition-all duration-1000`}
                     title={'What Is Art Therapy?'}
-                    details={'aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst'} pic={infoPic1} />
+                    details={`Art therapy is like using art to help you feel better. It's when you draw, paint, or make sculptures to explore your feelings and sort through any tough stuff you're dealing with. It's a cool way to express yourself when words just aren't enough. You can dive into your creative side and uncover new things about yourself. It's helpful for people of all ages, whether you're facing challenges or just want to understand yourself better.`} pic={infoPic1} />
 
                 <InfoSection
                     imageMotion={`${show ? 'translate-x-0 translate-y-0' : '!-translate-x-52'} transition-all duration-1000`}
                     style={`${show ? 'translate-x-0 translate-y-0' : 'translate-x-52'} transition-all duration-1000`}
                     title={'About Users'}
-                    details={'aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst'} pic={infoPic2} usersDetail={<>
+                    details={`Art lovers, tech enthusiasts, and those who seek the miracle of art to bring growth and vibrancy to their lives—these are the friends and companions of Raamona.
+If, along the way, you ever find yourself facing the mirage of anxiety or the quiet storms of depression, rest assured you’re not alone with us by your side.
+                We recognise the hustle of the modern world and the realities of ADHD. We've all walked this path, and we're in it together.
+`} pic={infoPic2} usersDetail={<>
                         <h5 className="text-end">+400 k</h5>
                         <h6 className="text-end">Other Users</h6>
                         <h5 className="text-end">+200 k</h5>
