@@ -97,7 +97,7 @@ const MobileMain = () => {
                 <div>
                     {/* scroll */}
                     <Image ref={skyRef} className={`${isLoad ? 'scale-100 translate-y-0' : 'scale-110 -translate-y-[10%]'} opacity-${background} absolute h-screen w-full left-0 top-0 z-0 scale-105 transition-all duration-700 ease-out`} src={sky} alt="" />
-                    {/* <Image className={`${isLoad ? 'opacity-100 translate-y-72' : 'opacity-0 translate-y-52'} transition-all duration-700 ease-out absolute left-0 bottom-0 w-full scale-125 z-20 `} src={earth} alt="" /> */}
+                    <Image className={`${isLoad ? 'opacity-100 translate-y-72' : 'opacity-0 translate-y-52'} transition-all duration-700 ease-out absolute left-0 bottom-10 w-full scale-125 z-20 `} src={earth} alt="" />
                     <Image className={`${!isLoad ? ` opacity-100` : 'opacity-0'} transition-all duration-500 fixed z-50 top-0 right-0 w-full h-screen`} src={initialBg} alt="" />
 
                 </div>
