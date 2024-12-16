@@ -26,7 +26,7 @@ const FaQ = () => {
     ]
     return (
         <>
-            <section className="py-8 px-20">
+            <section className="sm:px-10 px-5 lg:px-20">
                 <div className="flex flex-col w-full gap-5">
                     {questionsArray.map(item => (
                         <>

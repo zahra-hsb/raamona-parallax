@@ -35,7 +35,7 @@ const RaamonaInfo = () => {
                     `}
 
                     style={`
-                    ${show ? 'sm:translate-x-0 translate-y-0 scale-100' : 'sm:translate-x-52 translate-y-52 scale-75'} transition-all duration-1000 sm:translate-y-0 sm:scale-100
+                    ${show ? 'sm:translate-x-0 translate-y-0 scale-100' : 'sm:translate-x-52 translate-y-52 scale-75'} transition-all duration-1000 sm:translate-y-0 sm:scale-100 flex-col-reverse mt-5
                     `}
                     title={'What Is Art Therapy?'}
                     details={`Art therapy is like using art to help you feel better. It's when you draw, paint, or make sculptures to explore your feelings and sort through any tough stuff you're dealing with. It's a cool way to express yourself when words just aren't enough. You can dive into your creative side and uncover new things about yourself. It's helpful for people of all ages, whether you're facing challenges or just want to understand yourself better.`}
@@ -48,7 +48,7 @@ const RaamonaInfo = () => {
                     `}
 
                     style={`
-                    ${show ? 'sm:translate-x-0 sm:translate-y-0 translate-y-0 scale-100' : 'sm:translate-x-52 translate-y-52 scale-75'} transition-all duration-1000 sm:translate-y-0 sm:scale-100
+                    ${show ? 'sm:translate-x-0 sm:translate-y-0 translate-y-0 scale-100' : 'sm:translate-x-52 translate-y-52 scale-75'} transition-all duration-1000 sm:translate-y-0 sm:scale-100 flex-col-reverse 
                     `}
 
                     title={'About Users'}
