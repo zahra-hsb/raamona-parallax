@@ -20,20 +20,20 @@ const Footer = ({ isShow }) => {
     ]
     return (
         <>
-            <footer className="w-full py-10 px-20">
+            <footer className="w-full py-10 lg:px-20 sm:px-10 px-5">
                 {isShow &&
                     <>
-                        <section className="w-full bg-footer h-full rounded-2xl bg-amber-50 px-28 flex flex-col pt-72 bg-cover">
+                        <section className="w-full bg-footer h-full rounded-2xl lg:px-28 sm:px-10 px-5 flex flex-col pt-72 bg-cover">
                             <form className="w-full">
                                 <div className="w-full flex relative">
-                                    <input type="text" className=" w-full p-3 rounded-md border backdrop-blur-3xl" placeholder="Enter Your Email..." />
+                                    <input type="text" className=" w-full p-3 rounded-md border !backdrop-blur-sm bg-white/30 placeholder:text-gray-300 my-5" placeholder="Enter Your Email..." />
                                     <Button
                                         text={
                                             <>
                                                 Join Us
                                                 <Image src={Join} alt="join raamona" />
                                             </>}
-                                        style={'absolute top-1 right-2'}
+                                        style={'absolute top-6 right-2'}
                                     />
                                 </div>
                             </form>
