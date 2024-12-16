@@ -62,7 +62,7 @@ const Tabs = () => {
         <>
             <section className="w-full">
                 <div className="w-full flex gap-14 justify-center items-center py-2">
-                    <div className="absolute hidden sm:flex left-0 gap-5 px-5">
+                    <div className="absolute hidden lg:flex left-0 gap-5 px-5">
                         <div className="py-2">
                             <p className="text-gray-400 text-sm">Sort</p>
                             <select className="bg-gray-200 cursor-pointer px-3 py-1 rounded">
