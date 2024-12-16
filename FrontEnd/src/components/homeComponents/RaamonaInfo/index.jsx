@@ -31,7 +31,7 @@ const RaamonaInfo = () => {
                 </div>
                 <InfoSection
                     imageMotion={`
-                    ${show ? 'sm:translate-x-0 translate-y-0 scale-100' : 'sm:-translate-x-52 translate-y-52 scale-75'} transition-all duration-1000 sm:translate-y-0 sm:scale-100
+                    ${show ? 'sm:translate-x-0 translate-y-0 scale-100' : 'sm:-translate-x-52 translate-y-52 scale-75'} transition-all duration-1000 sm:translate-y-0 sm:scale-100 lg:w-full sm:w-2/3
                     `}
 
                     style={`
@@ -44,7 +44,7 @@ const RaamonaInfo = () => {
 
                 <InfoSection
                     imageMotion={`
-                    ${show ? 'sm:translate-x-0 sm:translate-y-0 translate-y-0 scale-100' : 'sm:!-translate-x-52 translate-y-52 scale-75'} transition-all duration-1000 sm:translate-y-0 sm:scale-100
+                    ${show ? 'sm:translate-x-0 sm:translate-y-0 translate-y-0 scale-100' : 'sm:!-translate-x-52 translate-y-52 scale-75'} transition-all duration-1000 sm:translate-y-0 sm:scale-100 lg:w-full sm:w-2/3
                     `}
 
                     style={`
@@ -59,20 +59,20 @@ If, along the way, you ever find yourself facing the mirage of anxiety or the qu
                     pic={infoPic2}
                     usersDetail={<>
                         <div>
-                            <h5 className="text-end">+400 k</h5>
-                            <h6 className="text-end">Other Users</h6>
+                            <h5 className="sm:text-end text-center">+400 k</h5>
+                            <h6 className="sm:text-end text-center">Other Users</h6>
                         </div>
                         <div>
-                            <h5 className="text-end">+200 k</h5>
-                            <h6 className="text-end">Therapist Users</h6>
+                            <h5 className="sm:text-end text-center">+200 k</h5>
+                            <h6 className="sm:text-end text-center">Therapist Users</h6>
                         </div>
                         <div>
-                            <h5 className="text-end">+100 k</h5>
-                            <h6 className="text-end">Artist Users</h6>
+                            <h5 className="sm:text-end text-center">+100 k</h5>
+                            <h6 className="sm:text-end text-center">Artist Users</h6>
                         </div>
                         <div>
-                            <h5 className="text-end">+100 k</h5>
-                            <h6 className="text-end">Treated Users</h6>
+                            <h5 className="sm:text-end text-center">+100 k</h5>
+                            <h6 className="sm:text-end text-center">Treated Users</h6>
                         </div>
                     </>} />
             </section>
