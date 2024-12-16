@@ -37,7 +37,7 @@ const ForgotPassword = () => {
     async function handleChangeAccountPass(e) {
         e.preventDefault()
         try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/resetPass`)
+            const res = await fetch(`/api/resetPass`)
             console.log(res)
         } catch (error) {
             console.log(error)

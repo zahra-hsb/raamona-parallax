@@ -15,8 +15,7 @@ const Signin = () => {
     const router = useRouter()
 
     const [values, setValues] = useState({
-        email: '',
-        username: '',
+        emailUser: '',
         password: ''
     })
 
@@ -27,21 +26,21 @@ const Signin = () => {
         color: ''
     })
 
-    function handleChangeValues(e) {  
-        const { name, value } = e.target;  
-        let newValue = value;  
-    
-        if (name === 'email') {  
+    function handleChangeValues(e) {
+        const { name, value } = e.target;
+        let newValue = value;
+
+        if (name === 'emailUser') {
             // Simple email validation (improve this for production)  
-            if (value.includes('@') && value.includes('.')) {  
+            if (value.includes('@') && value.includes('.')) {
                 newValue = value; //Treat as email  
-            } else {  
+            } else {
                 newValue = value; // Treat as username if not a valid email format  
-            }  
-        }  
-    
-        setValues({ ...values, [name]: newValue });  
-    }  
+            }
+        }
+
+        setValues({ ...values, [name]: newValue });
+    }
 
     async function handleLogin(e) {
         e.preventDefault()
@@ -53,7 +52,18 @@ const Signin = () => {
             })
             const result = await response.json()
             console.log('res: ', result);
-            // router.push('/signin/userprofile')
+            if (!result?.response.detail) {
+                setError({ message: result, color: '[#ff0000]' })
+                setTimeout(() => {
+                    setError({})
+                }, 3000)
+            } else {
+                setError({ message: result?.response.detail, color: '[#00ff00]' })
+                setTimeout(() => {
+                    setError({})
+                    router.push('/signin/userprofile')
+                }, 3000)
+            }
         } catch (error) {
             console.log('error=> ', error);
         }
@@ -61,7 +71,7 @@ const Signin = () => {
 
     useEffect(() => {
         setValidForm(
-            values.email &&
+            values.emailUser &&
             values.password &&
             values.password.length >= 8
         );
@@ -82,7 +92,7 @@ const Signin = () => {
                                     <Input
                                         type={'text'}
                                         id={'emailUser'}
-                                        name={'email'}
+                                        name={'emailUser'}
                                         label={'Email or Username'}
                                         maxLength={20}
                                         placeholder={'Enter a Email / Username'}
