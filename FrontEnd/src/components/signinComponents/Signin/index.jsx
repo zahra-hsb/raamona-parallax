@@ -75,7 +75,7 @@ const Signin = () => {
                         <div>
                             <h2 className="text-5xl my-10 font-bold">Sign in Your Account</h2>
                             <div className="w-full">
-                                <SocialLogin />
+                                <SocialLogin isLogin={true} />
                             </div>
                             <form className="flex flex-col gap-2">
                                 <div className="flex flex-col gap-2 justify-between items-center">
