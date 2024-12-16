@@ -34,7 +34,7 @@ const Tabs = () => {
         setSelectedTab(id)
     }
     const pics1Array = {
-        div1: [pic2, pic3, pic4, pic4, pic4, pic4, pic4, pic4, pic4, pic12, pic10, pic12, pic4, pic4, pic4],
+        div1: [pic2, pic3, pic4, pic4, pic4, pic4, pic4, pic4, pic4, pic12, pic10, pic12, pic4, pic4, pic4, pic4, pic4, pic4, pic4, pic4, pic4, pic12, pic10, pic12, pic4, pic4, pic4],
         div2: [pic2, pic6, pic9, pic10, pic14, pic14, pic14, pic14, pic14, pic14, pic14, pic4, pic4, pic4],
         div: [pic11, pic12, pic13, pic14, pic12, pic5, pic12, pic2, pic3, pic12, pic12, pic4, pic15, pic4]
     };
