@@ -20,10 +20,18 @@ const ForgotPassword = () => {
     })
     const router = useRouter()
 
-    function handleShowVerrificationCode(e) {
+    async function handleShowVerrificationCode(e) {
         e.preventDefault()
         console.log('show!');
-        setShowVerificationCode(true)
+        const res = await fetch('/api/resetPass', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: values.email })
+        }
+        )
+        const result = await res.json()
+        console.log(result);
+        // setShowVerificationCode(true)
     }
     function handleShowEmail() {
         setShowVerificationCode(false)
@@ -60,9 +68,9 @@ const ForgotPassword = () => {
 
                     <VerificationCode
                         verification={verification}
-                        verCode={values.code} 
+                        verCode={values.code}
                         passwordIcon={passwordIcon}
-                        password={values.password} 
+                        password={values.password}
                         isShowVerificationCode={isShowVerificationCode}
                         handleChangeValues={handleChangeValues}
                         cPassword={values.confirmPassword}
