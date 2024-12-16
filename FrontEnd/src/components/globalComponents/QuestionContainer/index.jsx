@@ -12,8 +12,8 @@ const QuestionContainer = ({ question, answer }) => {
     }
     return (
         <>
-            <div className="w-full bg-gray-200 px-5 rounded-3xl overflow-hidden active:bg-gray-300">
-                <div onClick={handleExpand} className="flex justify-between items-start p-5 cursor-pointer rounded-xl ">
+            <div className="w-full bg-gray-200 hover:bg-gray-300 transition-all duration-300 px-5 rounded-3xl overflow-hidden active:bg-gray-300">
+                <div onClick={handleExpand} className="flex justify-between items-start lg:p-5 lg:pb-8 sm:p-3 sm:pb-5 pl-2 pb-2 cursor-pointer rounded-xl ">
                     <h4 className={`${isExpand ? `-translate-y-[1px]` : `translate-y-5`} transition-all delay-150 duration-700 text-lg sm:text-2xl lg:text-2xl font-bold`}>{question}</h4>
                     <Image src={arrow} alt="arrow" className={`${isExpand ? `-translate-y-[1px] rotate-180` : `translate-y-5`} transition-all delay-150 duration-700`} width={30} />
                 </div>
