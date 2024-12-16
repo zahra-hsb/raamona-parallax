@@ -28,7 +28,7 @@ const ContactUs = () => {
                     </button>
                 </aside>
                 <main className="px- flex flex-col">
-                    <Header isShowPlayBtn={true} style={'w-[90%]'} menuStyle={'!justify-start w-1/2'} isLoggedIn={false} />
+                    <Header isShowPlayBtn={true} style={'w-[90%]'} menuStyle={'!justify-start'} isLoggedIn={false} />
                     <div className="px-28 flex flex-col gap-5">
                         <PageTitle title={'Contact Us'} />
                         <form>

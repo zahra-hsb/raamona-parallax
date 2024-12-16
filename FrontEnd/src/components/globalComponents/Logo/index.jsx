@@ -6,7 +6,7 @@ const Logo = () => {
         <>
             <div className="flex items-center justify-start">
                 <Image src={logo} alt="raamona logo" />
-                <h3 className="text-blue text-3xl font-bold">Raamona</h3>
+                {/* <h3 className="text-blue text-3xl font-bold">Raamona</h3> */}
             </div>
         </>
     )
