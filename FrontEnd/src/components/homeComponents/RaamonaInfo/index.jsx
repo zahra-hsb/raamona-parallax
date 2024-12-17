@@ -24,7 +24,7 @@ const RaamonaInfo = () => {
         <>
             <section className="py-8 px-5 sm:px-10 lg:px-20 overflow-hidden">
                 <div className={`${show ? `sm:translate-y-0` : `sm:translate-y-52`} transition-all duration-1000`}>
-                    <h3 className="lg:text-5xl sm:text-3xl text-xl font-extrabold ">How Does Work Raamona?</h3>
+                    <h3 className="lg:text-5xl sm:text-3xl text-2xl font-extrabold ">How Does Raamona Work?</h3>
                     <p className="text-justify">
                         You will answer some art therapy questions. After the analysis, you can choose to receive a picture that helps you relax, or a black-and-white coloring book picture that allows you to use your creativity to continue drawing and create your own colorful world.
                     </p>
@@ -40,7 +40,7 @@ const RaamonaInfo = () => {
                     title={'What Is Art Therapy?'}
                     details={`Art therapy is like using art to help you feel better. It's when you draw, paint, or make sculptures to explore your feelings and sort through any tough stuff you're dealing with. It's a cool way to express yourself when words just aren't enough. You can dive into your creative side and uncover new things about yourself. It's helpful for people of all ages, whether you're facing challenges or just want to understand yourself better.`}
 
-                    pic={infoPic1} />
+                    pic={infoPic2} />
 
                 <InfoSection
                     imageMotion={`
@@ -56,7 +56,7 @@ const RaamonaInfo = () => {
 If, along the way, you ever find yourself facing the mirage of anxiety or the quiet storms of depression, rest assured you’re not alone with us by your side.
                 We recognise the hustle of the modern world and the realities of ADHD. We've all walked this path, and we're in it together.
 `}
-                    pic={infoPic2}
+                    pic={infoPic1}
                     usersDetail={<>
                         <div>
                             <h5 className="sm:text-end text-center">+400 k</h5>

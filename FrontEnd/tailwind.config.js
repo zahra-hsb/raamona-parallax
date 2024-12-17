@@ -13,6 +13,7 @@ module.exports = {
         'slide3': 'url(/images/blog/State=Page-3.png)',
         'about': 'url(/images/about/Frame126.png)',
         'footer': 'url(/images/footer/FooterImage.png)',
+        'mobile-footer': 'url(/images/footer/FooterImage1.png)',
         'contact': 'url(/images/contact/bg.png)',
         'blogContent': 'url(/images/blogContent/image.png)',
       },
