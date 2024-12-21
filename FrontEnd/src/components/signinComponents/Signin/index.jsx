@@ -52,8 +52,14 @@ const Signin = () => {
             })
             const result = await response.json()
             console.log('res: ', result);
-            if (!result?.response.detail) {
-                setError({ message: result, color: '[#ff0000]' })
+            
+            if (!result.isLoggedIn) {
+                setError({ message: result.message, color: '[#ff0000]' })
+                setTimeout(() => {
+                    setError({})
+                }, 3000)
+            } else if (!result?.response.detail) {
+                setError({ message: result.message, color: '[#ff0000]' })
                 setTimeout(() => {
                     setError({})
                 }, 3000)
@@ -94,7 +100,7 @@ const Signin = () => {
                                         id={'emailUser'}
                                         name={'emailUser'}
                                         label={'Email or Username'}
-                                        maxLength={20}
+                                        maxLength={30}
                                         placeholder={'Enter a Email / Username'}
                                         style={'border border-gray-500'}
                                         icon={user}

@@ -8,30 +8,39 @@ export async function POST(req) {
         if (!data) {
             throw Error('data does not exists..')
         }
-        console.log("data=> ", data, data.emailUser.includes('@'))
 
         if (data.emailUser.includes('@') && data.emailUser.includes('.')) {
             const email = data.emailUser;
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Users/login/`, {
+            console.log('email')
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/Users/login/`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: email, password: data.password })
+                body: JSON.stringify({ email, password: data.password })
             })
-            return NextResponse.json({ message: '', res, isLoggedIn: true });
+            const resultOfLoginWithEmail = await res.json()
+            console.log(resultOfLoginWithEmail.non_field_errors)
+            if (resultOfLoginWithEmail.non_field_errors) {
+                return NextResponse.json({ message: resultOfLoginWithEmail.non_field_errors[0], response: resultOfLoginWithEmail, isLoggedIn: false });
+            }
+            return NextResponse.json({ message: 'Login successfull..', response: resultOfLoginWithEmail, isLoggedIn: true });
         } else if ((!data.emailUser.includes('@') && !data.emailUser.includes('.'))) {
             const username = data.emailUser;
-            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/Users/login/`, {
+            console.log('username')
+            const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/Users/login/`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username: username, password: data.password })
+                body: JSON.stringify({ username, password: data.password })
             })
-            const response = await res.json()
-            console.log('=> ', response)
-            if (!res.ok) {
-                throw Error('error while login...');
+            const responseOfUsernameLogin = await res.json()
+
+            if (responseOfUsernameLogin.non_field_errors) {
+                return NextResponse.json({ message: responseOfUsernameLogin.non_field_errors[0], response: res, isLoggedIn: false });
             }
-            return NextResponse.json({ message: '', response, res, isLoggedIn: true });
+
+            console.log('=> ')
+            return NextResponse.json({ message: 'Login successfull..', response: responseOfUsernameLogin, isLoggedIn: true });
         } else {
+            console.log('no')
 
             return NextResponse.json({ message: '', isLoggedIn: false });
         }
