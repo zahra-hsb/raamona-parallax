@@ -72,6 +72,21 @@ const Signin = () => {
             }
         } catch (error) {
             console.log('error=> ', error);
+            setError({ message: 'An error occurred during login', color: '[#ff0000]' });
+        }
+    }
+
+    async function refreshToken() {
+        try {
+            const response = await fetch('/api/login', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+            });
+            const result = await response.json();
+            return result.isLoggedIn;
+        } catch (error) {
+            console.error('Error refreshing token:', error);
+            return false;
         }
     }
 
@@ -82,6 +97,20 @@ const Signin = () => {
             values.password.length >= 8
         );
     }, [values])
+
+    useEffect(() => {
+        const checkAndRefreshToken = async () => {
+            const isRefreshed = await refreshToken();
+            if (!isRefreshed) {
+                router.push('/signin');
+            }
+        };
+
+        const intervalId = setInterval(checkAndRefreshToken, 14 * 60 * 1000); // Check every 14 minutes
+
+        return () => clearInterval(intervalId);
+    }, [router]);
+
     return (
         <>
             <section className="flex ">
