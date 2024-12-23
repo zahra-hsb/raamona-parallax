@@ -10,6 +10,7 @@ import Button from "@/components/globalComponents/Button"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
+import { useAuthStore } from "@/store/authStore"
 
 const Signin = () => {
     const router = useRouter()
@@ -20,7 +21,7 @@ const Signin = () => {
     })
 
     const [isValidForm, setValidForm] = useState(false)
-
+    const { login } = useAuthStore()
     const [error, setError] = useState({
         message: '',
         color: ''
@@ -45,14 +46,11 @@ const Signin = () => {
     async function handleLogin(e) {
         e.preventDefault()
         try {
-            const response = await fetch(`/api/login`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(values)
-            })
-            const result = await response.json()
-            console.log('res: ', result);
-            
+            const resultOfLogin = login(values)
+
+            const result = await resultOfLogin;
+            console.log('res: ', await result);
+
             if (!result.isLoggedIn) {
                 setError({ message: result.message, color: '[#ff0000]' })
                 setTimeout(() => {

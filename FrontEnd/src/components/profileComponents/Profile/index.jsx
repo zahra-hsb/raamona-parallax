@@ -19,8 +19,9 @@ import usernameIcon from '../../../../public/icons/User_duotone_line.svg'
 import passwordIcon from '../../../../public/icons/Password.svg'
 import countryInputIcon from '../../../../public/icons/world_2_light.svg'
 import mapIcon from '../../../../public/icons/Map_duotone_line.svg'
-import { useState } from "react"
+import { use, useEffect, useState } from "react"
 import ProfileTabs from "../ProfileTabs"
+import { useAuthStore } from "@/store/authStore"
 
 
 export const tabArray = [
@@ -61,6 +62,7 @@ const inputsArray = [
 const Profile = () => {
     const [showEditInfo, setShowEditInfo] = useState(false)
     const [showSearchBox, setShowSearchBox] = useState(false)
+    const { token, fetchProfile } = useAuthStore()
 
     function handleShowEditInfo() {
         setShowEditInfo(true)
@@ -71,6 +73,15 @@ const Profile = () => {
     function handleShowSearch() {
         setShowSearchBox(!showSearchBox)
     }
+
+
+    useEffect(() => {
+        if (!token) {
+            fetchProfile()
+        }
+    }, [token, fetchProfile])
+
+
     return (
         <>
             <div className="w-full ">
