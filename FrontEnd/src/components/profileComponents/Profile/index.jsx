@@ -24,6 +24,7 @@ import ProfileTabs from "../ProfileTabs"
 import { useAuthStore } from "@/store/authStore"
 import { useRouter } from "next/navigation"
 import { getUserInfo, refreshToken } from "@/actions"
+import PrivacyToggle from "../PrivacyToggle"
 
 
 export const tabArray = [
@@ -55,6 +56,7 @@ const Profile = () => {
     const [showSearchBox, setShowSearchBox] = useState(false)
     const { token, fetchProfile, user } = useAuthStore()
     const router = useRouter()
+    const [isPrivate, setIsPrivate] = useState(user.is_public ? user.is_public : true)
 
     function handleShowEditInfo() {
         setShowEditInfo(true)
@@ -65,7 +67,9 @@ const Profile = () => {
     function handleShowSearch() {
         setShowSearchBox(!showSearchBox)
     }
-
+    function handlePrivacyToggle() {
+        setIsPrivate(prev => !prev)
+    }
     const inputsArray = [
         { value: '', icon: userIcon, iId: 'fName', maxLength: 25, placeholder: 'First name', type: 'text', width: 'w-full', disabled: false, id: 1 },
         { value: '', icon: userIcon, iId: 'Last name', maxLength: 25, placeholder: 'Last name', type: 'text', width: 'w-full', disabled: false, id: 4 },
@@ -155,6 +159,7 @@ const Profile = () => {
                             </span>
                             <span className="text-blue opacity-40 mr-1">Privet</span>
                         </span>
+                        <PrivacyToggle isPrivate={isPrivate} onToggle={handlePrivacyToggle} />
                         <div className="relative">
                             <button onClick={handleShowSearch} className="bg-blue p-3 rounded-lg">
                                 <Image src={searchIcon} alt="" />

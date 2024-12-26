@@ -22,7 +22,7 @@ const ProfileTabs = ({ tabArray, inputsArray, showEditInfo }) => {
                         {inputsArray?.map(item => (
                             <Input disabled={item.disabled} value={item.value} icon={item.icon} id={item.iId} maxLength={item.maxLength} placeholder={item.placeholder} type={item.type} width={item.width} key={item.iId} />
                         ))}
-                    </div>
+                    </div>  
                     <Textarea disabled={showEditInfo ? false : true} placeholder={'Description'} icon={infoIcon} />
                 </div>}
             </div>
