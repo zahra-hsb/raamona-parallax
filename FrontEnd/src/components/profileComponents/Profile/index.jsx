@@ -47,24 +47,13 @@ const viewInputsArray = [
     { icon: dateIcon, iId: 'bDate', maxLength: 25, placeholder: 'Birth Date', type: 'text', width: 'w-1/3', disabled: true, id: 1 },
 
 ]
-const inputsArray = [
-    { icon: userIcon, iId: 'fName', maxLength: 25, placeholder: 'First name', type: 'text', width: 'w-full', disabled: false, id: 1 },
-    { icon: userIcon, iId: 'Last name', maxLength: 25, placeholder: 'Last name', type: 'text', width: 'w-full', disabled: false, id: 4 },
-    { icon: userIcon, iId: 'mName', maxLength: 25, placeholder: 'Middle name', type: 'text', width: 'w-full', disabled: false, id: 7 },
-    { icon: countryInputIcon, iId: 'country', maxLength: 25, placeholder: 'Country', type: 'text', width: 'w-full', disabled: false, id: 2 },
-    { icon: mapIcon, iId: 'city', maxLength: 25, placeholder: 'City', type: 'text', width: 'w-full', disabled: false, id: 5 },
-    { icon: dateIcon, iId: 'bDate', maxLength: 25, placeholder: 'Birth date', type: 'text', width: 'w-full', disabled: false, id: 8 },
-    { icon: usernameIcon, iId: 'username', maxLength: 25, placeholder: '@username', type: 'text', width: 'w-full', disabled: false, id: 3 },
-    { icon: passwordIcon, iId: 'password', maxLength: 25, placeholder: 'New Password', type: 'password', width: 'w-full', disabled: false, id: 6 },
-    { icon: passwordIcon, iId: 'cPass', maxLength: 25, placeholder: 'Confirm new password', type: 'password', width: 'w-full', disabled: false, id: 9 },
 
-]
 
 
 const Profile = () => {
     const [showEditInfo, setShowEditInfo] = useState(false)
     const [showSearchBox, setShowSearchBox] = useState(false)
-    const { token, fetchProfile } = useAuthStore()
+    const { token, fetchProfile, user } = useAuthStore()
     const router = useRouter()
 
     function handleShowEditInfo() {
@@ -77,14 +66,25 @@ const Profile = () => {
         setShowSearchBox(!showSearchBox)
     }
 
-    
+    const inputsArray = [
+        { value: '', icon: userIcon, iId: 'fName', maxLength: 25, placeholder: 'First name', type: 'text', width: 'w-full', disabled: false, id: 1 },
+        { value: '', icon: userIcon, iId: 'Last name', maxLength: 25, placeholder: 'Last name', type: 'text', width: 'w-full', disabled: false, id: 4 },
+        { value: '', icon: userIcon, iId: 'mName', maxLength: 25, placeholder: 'Middle name', type: 'text', width: 'w-full', disabled: false, id: 7 },
+        { value: user?.country ? user.country : '', icon: countryInputIcon, iId: 'country', maxLength: 25, placeholder: 'Country', type: 'text', width: 'w-full', disabled: false, id: 2 },
+        { value: user?.city ? user.city : '', icon: mapIcon, iId: 'city', maxLength: 25, placeholder: 'City', type: 'text', width: 'w-full', disabled: false, id: 5 },
+        { value: '', icon: dateIcon, iId: 'bDate', maxLength: 25, placeholder: 'Birth date', type: 'text', width: 'w-full', disabled: false, id: 8 },
+        { value: '', icon: usernameIcon, iId: 'username', maxLength: 25, placeholder: '@username', type: 'text', width: 'w-full', disabled: false, id: 3 },
+        { value: '', icon: passwordIcon, iId: 'password', maxLength: 25, placeholder: 'New Password', type: 'password', width: 'w-full', disabled: false, id: 6 },
+        { value: '', icon: passwordIcon, iId: 'cPass', maxLength: 25, placeholder: 'Confirm new password', type: 'password', width: 'w-full', disabled: false, id: 9 },
+
+    ]
 
 
     useEffect(() => {
-        if (!token) {
+        if (!token || !user) {
             fetchProfile()
         }
-    }, [token, fetchProfile])
+    }, [token, fetchProfile, user])
 
     useEffect(() => {
         const checkAndRefreshToken = async () => {
@@ -104,24 +104,15 @@ const Profile = () => {
         return () => clearInterval(intervalId);
     }, [router]);
 
-    useEffect(() => {
-        const getProfileInfo = async () => {
-            try {
-                
-               const userInfo = await getUserInfo()
-               console.log(userInfo);
-            } catch (error) {
-                console.error('Error in checkAndRefreshToken:', error);
-            }
-        };
-        getProfileInfo()
-    }, [])
+    if (!user) {
+        return <div>Loading...</div>
+    }
 
     return (
         <>
             <div className="w-full ">
                 <PageTitle title={'Profile'} style={'!text-white absolute top-32 left-20'} />
-                <Image src={banner} className="w-full" alt="" />
+                <Image src={user.banner_picture ? user.banner_picture : banner} className="w-full" alt="" />
                 <div className="absolute p-2 flex items-center gap-2 bg-white rounded-lg z-50 -mt-24 right-10">
                     <h4 className="text-blue">28</h4>
                     <Image src={icon} alt="" />
@@ -133,13 +124,13 @@ const Profile = () => {
                         <Link href={'/upload'} className="absolute top-8 z-50 right-8">
                             <Image src={editIcon} alt="" />
                         </Link>
-                        <Image src={cover} alt="" className="" />
+                        <Image src={user.profile_picture ? user.profile_picture : cover} alt="" className="" />
                     </div>
                     <div className="flex flex-col gap-2 -ml-44">
                         <h2 className="text-xl font-semibold">First/Last Name</h2>
                         <div className="flex gap-2">
                             <Image src={countryIcon} alt="" />
-                            <p>Los Angles, United State</p>
+                            <p>{user.city ? user.city : ''}, {user.country ? user.country : ''}</p>
                         </div>
                         <h3>@Username</h3>
                     </div>
@@ -193,7 +184,8 @@ const Profile = () => {
                 <div className="pl-72 pr-44">
                     <h4 className="text-xl">Description</h4>
                     <p className="text-justify">
-                        aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst
+                        {user?.bio === null ? 'without info...' : user?.bio}
+                        {/* aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst */}
                     </p>
                 </div>
                 <ProfileTabs

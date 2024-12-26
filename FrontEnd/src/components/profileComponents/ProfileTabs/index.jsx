@@ -20,7 +20,7 @@ const ProfileTabs = ({ tabArray, inputsArray, showEditInfo }) => {
                 {selectedTab === 1 && <div className="px-32 py-10 flex flex-col gap-5">
                     <div className="grid grid-flow-col grid-rows-3 gap-10">
                         {inputsArray?.map(item => (
-                            <Input disabled={item.disabled} icon={item.icon} id={item.iId} maxLength={item.maxLength} placeholder={item.placeholder} type={item.type} width={item.width} key={item.iId} />
+                            <Input disabled={item.disabled} value={item.value} icon={item.icon} id={item.iId} maxLength={item.maxLength} placeholder={item.placeholder} type={item.type} width={item.width} key={item.iId} />
                         ))}
                     </div>
                     <Textarea disabled={showEditInfo ? false : true} placeholder={'Description'} icon={infoIcon} />

@@ -1,3 +1,4 @@
+import { getUserInfo } from '@/actions'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
@@ -30,15 +31,9 @@ export const useAuthStore = create()(
 
                 if (!token) return
                 try {
-                    const response = await fetch('/api/profile/getInfo', {
-                        method: "GET",
-                        headers: {
-                            Authorization: `Bearer ${token}`
-                        }
-                    })
-                    const result = await response.json()
-                    console.log('38: ', result)
-                    set({ user: result.data })
+                    const userInfo = await getUserInfo()
+                    console.log('38: ', userInfo)
+                    set({ user: userInfo.data })
                 } catch (error) {
                     console.error('Failed to fetch profile:', error)
                     throw error
