@@ -56,7 +56,7 @@ const Profile = () => {
     const [showSearchBox, setShowSearchBox] = useState(false)
     const { token, fetchProfile, user } = useAuthStore()
     const router = useRouter()
-    const [isPrivate, setIsPrivate] = useState(user.is_public ? user.is_public : true)
+    const [isPrivate, setIsPrivate] = useState(user?.is_public ? user.is_public : true)
 
     function handleShowEditInfo() {
         setShowEditInfo(true)
@@ -190,7 +190,6 @@ const Profile = () => {
                     <h4 className="text-xl">Description</h4>
                     <p className="text-justify">
                         {user?.bio === null ? 'without info...' : user?.bio}
-                        {/* aenean pharetra magna ac placerat vestibulum lectus mauris ultrices eros in cursus turpis massa tincidunt dui ut ornare lectus sit amet est placerat in egestas erat imperdiet sed euismod nisi porta lorem mollis aliquam ut porttitor leo a diam sollicitudin tempor id eu nisl nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet risus nullam eget felis eget nunc lobortis mattis aliquam faucibus purus in massa tempor nec feugiat nisl pretium fusce id velit ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare suspendisse sed nisi lacus sed viverra tellus in hac habitasse platea dictumst */}
                     </p>
                 </div>
                 <ProfileTabs
