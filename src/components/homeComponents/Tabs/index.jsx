@@ -1,3 +1,4 @@
+"use client"
 import PictureContainer from "../PictureContainer";
 import pic1 from '../../../../public/images/pics/1.png';
 import pic2 from '../../../../public/images/pics/2.png';
