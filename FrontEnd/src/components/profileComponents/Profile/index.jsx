@@ -85,10 +85,10 @@ const Profile = () => {
 
 
     useEffect(() => {
-        if (!token || !user) {
-            fetchProfile()
+        if (user.code === "token_not_valid") {
+            router.push('/signin')
         }
-    }, [token, fetchProfile, user])
+    }, [token, fetchProfile, user, router])
 
     useEffect(() => {
         const checkAndRefreshToken = async () => {

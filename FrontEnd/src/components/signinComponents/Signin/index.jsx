@@ -21,7 +21,7 @@ const Signin = () => {
     })
 
     const [isValidForm, setValidForm] = useState(false)
-    const { login } = useAuthStore()
+    const { login, user } = useAuthStore()
     const [error, setError] = useState({
         message: '',
         color: ''
@@ -83,7 +83,12 @@ const Signin = () => {
         );
     }, [values])
 
-
+    useEffect(() => {
+        console.log(user);
+        if (user.code !== "token_not_valid") {
+            router.push('/signin/userprofile')
+        }
+    }, [router, user])
     return (
         <>
             <section className="flex ">

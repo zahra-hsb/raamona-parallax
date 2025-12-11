@@ -14,7 +14,7 @@ import send from '../../../public/icons/Send_duotone_line.svg'
 import Link from "next/link"
 import instagram from '../../../public/icons/Instagram.svg'
 import twitter from '../../../public/icons/Twitter.svg'
-import linkedin from '../../../public/icons/Linkedin.svg'
+import linkedin from '../../../public/icons/LinkedIn.svg'
 import { useRouter } from "next/navigation"
 
 const ContactUs = () => {
